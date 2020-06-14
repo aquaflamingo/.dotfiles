@@ -39,11 +39,18 @@ Plug 'fatih/vim-go'
 
 " FZF
 " Plug 'junegunn/fzf'
+Plug '/usr/local/opt/fzf' " use the vim plugin included in the fzf package
 
 " Python
 Plug 'klen/python-mode'
 
 call plug#end()
+
+" fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " Use '' to copy to mac system keyboard
 vmap '' :w !pbcopy<CR><CR>
