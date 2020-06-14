@@ -2,8 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
 source ~/.zshrcpriv
 
 # Set name of the theme to load --- if set to "random", it will
@@ -15,11 +13,14 @@ ZSH_THEME="jnrowe"
 
 plugins=(
   osx
+	# https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
   zsh-autosuggestions
+	# https://github.com/zsh-users/zsh-syntax-highlightings/blob/master/INSTALL.md
   zsh-syntax-highlighting
 )
 
 export EDITOR=nvim
+export ZSH=$HOME/.oh-my-zsh
 
 source $ZSH/oh-my-zsh.sh
 
