@@ -6,7 +6,6 @@ call plug#begin("~/.config/nvim/bundle")
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'conradirwin/vim-bracketed-paste'
 
 Plug 'tpope/vim-fugitive'
@@ -15,14 +14,11 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
-" Plug 'crusoexia/vim-monokai'
-Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " Linting
 Plug 'w0rp/ale'
 
-" Language
-Plug 'sheerun/vim-polyglot'
 
 " Conqure of Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -36,21 +32,37 @@ Plug 'janko/vim-test'
 
 " Go 
 Plug 'fatih/vim-go'
+"
+" Language
+Plug 'sheerun/vim-polyglot'
 
 " FZF
-" Plug 'junegunn/fzf'
-Plug '/usr/local/opt/fzf' " use the vim plugin included in the fzf package
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Python
 Plug 'klen/python-mode'
 
+" greppin
+Plug 'dyng/ctrlsf.vim'
 call plug#end()
+
+colorscheme palenight
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " fzf
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+nnoremap <C-p> :Files<CR>
+
+" vim-go
+let g:go_debug_windows = {
+      \ 'vars':       'rightbelow 60vnew',
+      \ 'stack':      'rightbelow 10new',
+\ }
 
 " Use '' to copy to mac system keyboard
 vmap '' :w !pbcopy<CR><CR>
@@ -95,24 +107,20 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '!!'
 
-" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|dump|map|log)$'
-let g:ctrlp_custom_ignore = 'node_modules$'
-let g:ctrlp_show_hidden = 1
+" Ctrl SF
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Tabs
 map <leader>1 1gt
 map <leader>2 2gt
 map <leader>3 3gt
-map <leader>4 4gt
-map <leader>5 5gt
-map <leader>6 6gt
-map <leader>7 7gt
-map <leader>8 8gt
-map <leader>9 9gt
 map <leader>0 :tablast<cr>
 
 " ---- start my keys
@@ -120,12 +128,17 @@ map <leader>0 :tablast<cr>
 au FocusLost * silent! wa
 
 "delete buffer"
+nnoremap <c-S>\ :vsp<cr>
+nnoremap <c-S>- :sp<cr>
 nnoremap <c-d> :bd!<cr>
 nnoremap <c-b> :bp<cr>
 nnoremap <c-n> :bn<cr>
 
 " Leader e to edit file in same location as current path
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+
+" Remove highlight on esc
+noremap <ESC> :noh<CR><ESC>
 
 " ---- end my hot keys
 
@@ -147,16 +160,10 @@ set listchars=tab:⇥·,trail:·
 "Trailing spaces in red
 match Error /\v\s+$/
 
-" Quick exit
-imap jj <Esc>
-
-" colorscheme gruvbox
-" colorscheme monokai
-
 syntax on " Syntax highlighting
 
 set number " Set line numbers
-set t_Co=256
+" set t_Co=256
 set tabstop=2
 set shiftwidth=3
 set noexpandtab " Use tab characters not spaces
@@ -166,7 +173,6 @@ set incsearch     " find next match as we type the search
 set hlsearch      " Highlight searchs by default
 set ignorecase    " Ignore case when searching
 set smartcase     " unless we type a capital
-
 
 if has("autocmd")
 "	filetype plugin indent on
@@ -200,9 +206,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 if has('patch8.1.1068')
@@ -217,10 +220,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <leader> gd <Plug>(coc-definition)
+nmap <leader> gy <Plug>(coc-type-definition)
+nmap <leader> gi <Plug>(coc-implementation)
+nmap <leader> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -239,73 +242,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-" Formatting selected code.
-"xmap <leader>f  <Plug>(coc-format-selected)
-"nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Introduce function text object
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-" <C-i> maps to tab in vim so disable this
-"nmap <silent> <TAB> <Plug>(coc-range-select)
-"xmap <silent> <TAB> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Mappings using CoCList:
-" Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " ----- END COC
 
