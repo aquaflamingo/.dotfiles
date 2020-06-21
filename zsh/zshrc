@@ -61,9 +61,9 @@ alias gadd="git add -A"
 alias gcommit="git commit -m"
 alias gbr="git branch | cat"
 alias glogfirst="git rev-list HEAD"
+alias gpick="git --no-pager log --pretty=oneline --max-count=20 | fzf | awk -F' ' '{print $1}'"
 alias gfix="git commit --fixup"
 alias grename="git branch -m"
-alias gfx="git --no-pager log --reverse --pretty=oneline --max-count=20 | fzf | awk '{print $1}' | xargs git commit --fixup"
 alias adbinput="adb shell input text"
 
 # Youtube
