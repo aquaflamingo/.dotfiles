@@ -125,6 +125,7 @@ map <leader>0 :tablast<cr>
 
 " ---- start my keys
 " Autosave buffers when focus lost
+set hid
 au FocusLost * silent! wa
 
 "delete buffer"
