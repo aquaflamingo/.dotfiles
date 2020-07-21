@@ -67,6 +67,13 @@ let g:go_debug_windows = {
 " Use '' to copy to mac system keyboard
 vmap '' :w !pbcopy<CR><CR>
 
+" Use :W to create dir before saving
+function WriteCreatingDirs()
+    execute ':silent !mkdir -p %:h'
+    write
+endfunction
+command W call WriteCreatingDirs()
+
 " Resize windows
 if bufwinnr(1)
   map + <C-W>>
@@ -129,8 +136,6 @@ set hid
 au FocusLost * silent! wa
 
 "delete buffer"
-nnoremap <c-S>\ :vsp<cr>
-nnoremap <c-S>- :sp<cr>
 nnoremap <c-d> :bd!<cr>
 nnoremap <c-b> :bp<cr>
 nnoremap <c-n> :bn<cr>
