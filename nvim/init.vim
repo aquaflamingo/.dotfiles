@@ -255,8 +255,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ----- END COC
 
-" Optional override for local vimrc files
-if filereadable(glob("~/.vimrc.local")) 
-    source ~/.vimrc.local
-endif
-
+" Optional override for per project vimrc files
+set exrc
+set secure
