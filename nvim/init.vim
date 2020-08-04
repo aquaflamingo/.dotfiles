@@ -14,11 +14,11 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'drewtempelmeyer/palenight.vim'
+Plug 'joshdick/onedark.vim'
 
 " Linting
 Plug 'w0rp/ale'
-
 
 " Conqure of Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -47,7 +47,7 @@ Plug 'klen/python-mode'
 Plug 'dyng/ctrlsf.vim'
 call plug#end()
 
-colorscheme palenight
+colorscheme onedark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " fzf
@@ -72,7 +72,8 @@ function WriteCreatingDirs()
     execute ':silent !mkdir -p %:h'
     write
 endfunction
-command W call WriteCreatingDirs()
+
+command! W call WriteCreatingDirs()
 
 " Resize windows
 if bufwinnr(1)
@@ -139,6 +140,14 @@ au FocusLost * silent! wa
 nnoremap <c-d> :bd!<cr>
 nnoremap <c-b> :bp<cr>
 nnoremap <c-n> :bn<cr>
+
+set clipboard+=unnamedplus
+
+" thoughtbot splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Leader e to edit file in same location as current path
 nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
