@@ -10,6 +10,7 @@ Plug 'conradirwin/vim-bracketed-paste'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
 
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
@@ -24,7 +25,6 @@ Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Ruby
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 
 " general 
@@ -117,8 +117,7 @@ let g:ale_sign_warning = '!!'
 
 " Ctrl SF
 nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-vmap     <C-F>F <Plug>CtrlSFVwordExec
+vmap     <C-F>f <Plug>CtrlSFVwordExec
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
@@ -240,11 +239,11 @@ nmap <leader> gy <Plug>(coc-type-definition)
 nmap <leader> gi <Plug>(coc-implementation)
 nmap <leader> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
+" Use K to show documentation i  preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
+  if (in ex(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
     call CocAction('doHover')
