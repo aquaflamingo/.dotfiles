@@ -6,8 +6,6 @@ call plug#begin("~/.config/nvim/bundle")
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'conradirwin/vim-bracketed-paste'
-
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
@@ -30,11 +28,11 @@ Plug 'tpope/vim-rails'
 " general 
 Plug 'janko/vim-test'
 
-" Go 
-Plug 'fatih/vim-go'
-"
 " Language
 Plug 'sheerun/vim-polyglot'
+
+" Go 
+Plug 'fatih/vim-go'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -55,6 +53,9 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+" fzf in floating window
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 nnoremap <C-p> :Files<CR>
 
@@ -106,14 +107,15 @@ let NERDTreeShowHidden=1
 
 " Linting
 let g:ale_fixers = {
+				 \ 'go': ['gofmt'],
 				 \ 'javascript': ['prettier'],
 				 \ 'css': ['prettier'],
 				 \ 'ruby': ['standardrb','rubocop'],
          \ }
 
 let g:ale_fix_on_save = 1
-let g:ale_sign_error = 'X'
-let g:ale_sign_warning = '!!'
+let g:ale_sign_error = '🚫'
+let g:ale_sign_warning = '⚠️'
 
 " Ctrl SF
 nmap     <C-F>f <Plug>CtrlSFPrompt
@@ -177,6 +179,8 @@ match Error /\v\s+$/
 syntax on " Syntax highlighting
 
 set number " Set line numbers
+set relativenumber " Set line numbers
+
 " set t_Co=256
 set tabstop=2
 set shiftwidth=3
@@ -266,3 +270,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Optional override for per project vimrc files
 set exrc
 set secure
+
+" Go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
+let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor     
