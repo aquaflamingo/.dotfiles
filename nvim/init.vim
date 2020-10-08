@@ -13,11 +13,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
-" Plug 'drewtempelmeyer/palenight.vim'
 Plug 'joshdick/onedark.vim'
-
-" Linting
-Plug 'w0rp/ale'
 
 " Conqure of Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,18 +24,15 @@ Plug 'tpope/vim-rails'
 " general 
 Plug 'janko/vim-test'
 
-" Language
-Plug 'sheerun/vim-polyglot'
-
 " Go 
 Plug 'fatih/vim-go'
+
+" Language
+Plug 'sheerun/vim-polyglot'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-" Python
-Plug 'klen/python-mode'
 
 " greppin
 Plug 'dyng/ctrlsf.vim'
@@ -56,7 +49,6 @@ let g:fzf_action = {
 
 " fzf in floating window
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
 nnoremap <C-p> :Files<CR>
 
 " vim-go
@@ -101,6 +93,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " NerdTree
 " - Toggle
 nnoremap <Leader>f :NERDTreeToggle<Enter>
+
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden=1
@@ -160,10 +153,10 @@ noremap <ESC> :noh<CR><ESC>
 
 " show the command you are typing
 set showcmd
-set ruler
 
 " Highlight current line
 set cursorline
+set lazyredraw
 
 " Makes the current line stand out with bold and in the numberline
 hi CursorLine cterm=bold
@@ -272,7 +265,5 @@ set exrc
 set secure
 
 " Go
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
 let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor     
