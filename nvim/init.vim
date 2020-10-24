@@ -36,6 +36,9 @@ Plug 'junegunn/fzf.vim'
 
 " greppin
 Plug 'dyng/ctrlsf.vim'
+
+" Vim Tmux
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 colorscheme onedark
