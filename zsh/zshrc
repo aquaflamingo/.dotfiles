@@ -1,13 +1,4 @@
-export EDITOR=nvim
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-source ~/.zshrcpriv
-
+setopt autocd
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -23,47 +14,19 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+export EDITOR=nvim
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+source ~/.zshrcpriv
+source ~/.dotfiles/zsh/alias.zsh
+
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# vim
-alias vimold='vim'
-alias v='vim'
-alias vim='nvim'
-
-# Warn before overwriting
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-
-# Docker
-alias d='docker'
-alias dps='docker ps'
-alias dockerterm='docker exec -it'
-alias dockerbuild='docker build -t'
-alias dockeripd="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
-
-# python
-alias python=python3
-alias pip=pip3
-
-# configs
-alias ,ez="vim ~/.zshrc"
-alias ,ev="vim ~/.vimrc"
-
-# Terminal
-alias cl="clear"
-alias reload="source ~/.zshrc"
-
-# git
-alias ga="git add -A"
-alias gco="git commit -m"
-alias gbr="git branch | cat"
-alias gf="git commit --fixup"
-alias grename="git branch -m"
-
-# Youtube
-alias youtube='youtube-dl --extract-audio --audio-format mp3'
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
