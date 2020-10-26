@@ -13,7 +13,9 @@ Plug 'tpope/vim-eunuch'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'joshdick/onedark.vim'
+
+Plug 'sainnhe/edge'
+"Plug 'joshdick/onedark.vim'
 
 " Conqure of Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -41,7 +43,10 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
-colorscheme onedark
+set termguicolors
+"set background=light
+colorscheme edge
+
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " fzf
@@ -140,6 +145,11 @@ nnoremap <c-n> :bn<cr>
 
 set clipboard+=unnamedplus
 
+nnoremap <leader>gs :Gst<cr>
+
+" Quickly open/reload vim
+nnoremap <leader>ev :split ~/.vimrc<CR>  
+nnoremap <leader>sv :source ~/.vimrc<CR>    
 " thoughtbot splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -175,7 +185,7 @@ match Error /\v\s+$/
 syntax on " Syntax highlighting
 
 set number " Set line numbers
-set relativenumber " Set line numbers
+"set relativenumber " Set line numbers
 
 " set t_Co=256
 set tabstop=2
@@ -238,17 +248,6 @@ nmap <leader> gd <Plug>(coc-definition)
 nmap <leader> gy <Plug>(coc-type-definition)
 nmap <leader> gi <Plug>(coc-implementation)
 nmap <leader> gr <Plug>(coc-references)
-
-" Use K to show documentation i  preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (in ex(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
