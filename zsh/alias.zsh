@@ -35,6 +35,8 @@ alias reload="source ~/.zshrc"
 
 # git
 alias ga="git add -A"
+alias gadd="git add -A"
+alias gcommit="git commit"
 alias gcm="git commit -m"
 alias gbr="git branch | cat"
 alias gf="git commit --fixup"
