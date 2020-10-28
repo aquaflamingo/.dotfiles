@@ -18,9 +18,12 @@ export PRIV=$HOME/.zshrcpriv
 export DOTFILES=$HOME/.dotfiles/zsh
 
 source $ZSH/oh-my-zsh.sh
-source $PRIV
+
 source $DOTFILES/alias.zsh
 source $DOTFILES/language.zsh
+source $DOTFILES/func.zsh
+
+source $PRIV
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
