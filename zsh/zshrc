@@ -16,9 +16,9 @@ export EDITOR=nvim
 export ZSH=$HOME/.oh-my-zsh
 export PRIV=$HOME/.zshrcpriv
 export DOTFILES=$HOME/.dotfiles/zsh
+export MYVIMRC=$HOME/.vimrc
 
 source $ZSH/oh-my-zsh.sh
-
 source $DOTFILES/alias.zsh
 source $DOTFILES/language.zsh
 source $DOTFILES/func.zsh
