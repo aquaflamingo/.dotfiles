@@ -140,8 +140,8 @@ au FocusLost * silent! wa
 
 "delete buffer"
 nnoremap <c-d> :bd!<cr>
-nnoremap <c-b> :bp<cr>
-nnoremap <c-n> :bn<cr>
+nnoremap <leader>b :bp<cr>
+nnoremap <leader>n :bn<cr>
 
 set clipboard+=unnamedplus
 
@@ -269,3 +269,17 @@ set secure
 " Go
 let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
 let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor     
+
+imap jj <Esc>
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+
+" Edit vimr configuration file
+nnoremap <Leader>ve :e $MYVIMRC<CR>
+" " Reload vimr configuration file
+nnoremap <Leader>vr :source $MYVIMRC<CR>
