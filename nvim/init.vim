@@ -102,6 +102,8 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " - Toggle
 nnoremap <Leader>f :NERDTreeToggle<Enter>
 
+" Refresh tree
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden=1
@@ -145,11 +147,15 @@ nnoremap <leader>n :bn<cr>
 
 set clipboard+=unnamedplus
 
+nnoremap <leader>gfa :Git fetch --all<CR>
+nnoremap <leader>grum :Git rebase upstream/master<CR>
+nnoremap <leader>grom :Git rebase origin/master<CR>
 nnoremap <leader>gs :Gst<cr>
 
 " Quickly open/reload vim
 nnoremap <leader>ev :split ~/.vimrc<CR>  
 nnoremap <leader>sv :source ~/.vimrc<CR>    
+
 " thoughtbot splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -277,9 +283,3 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
-
-
-" Edit vimr configuration file
-nnoremap <Leader>ve :e $MYVIMRC<CR>
-" " Reload vimr configuration file
-nnoremap <Leader>vr :source $MYVIMRC<CR>
