@@ -44,8 +44,8 @@ Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 set termguicolors
-"set background=light
 colorscheme edge
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
@@ -283,3 +283,4 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
