@@ -35,13 +35,15 @@ alias reload="source ~/.zshrc"
 
 # git
 alias ga="git add -A"
-alias gadd="git add -A"
-alias gcommit="git commit"
+alias gc="git commit"
 alias gcm="git commit -m"
 alias gco="git checkout"
 alias gps="git push"
 alias gbr="git branch | cat"
 alias gf="git commit --fixup"
+alias grco="git rebase --continue"
+alias grom="git rebase origin/master"
+alias grum="git rebase upstream/master"
 alias grename="git branch -m"
 
 # Youtube
