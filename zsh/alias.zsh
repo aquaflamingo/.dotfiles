@@ -26,6 +26,7 @@ alias pip=pip3
 
 # configs
 alias ,ez="vim ~/.zsh"
+alias ,eza="vim ~/.zsh/alias.zsh"
 alias ,ev="vim ~/.vimrc"
 alias ,et="vim ~/.tmux.conf"
 
@@ -37,8 +38,9 @@ alias reload="source ~/.zshrc"
 alias ga="git add -A"
 alias gc="git commit"
 alias gcm="git commit -m"
+alias gcob="git checkout -b"
 alias gco="git checkout"
-alias gps="git push"
+alias gp="git push"
 alias gbr="git branch | cat"
 alias gf="git commit --fixup"
 alias grco="git rebase --continue"
