@@ -76,12 +76,6 @@ endfunction
 
 command! W call WriteCreatingDirs()
 
-" Resize windows
-if bufwinnr(1)
-  map + <C-W>>
-  map - <C-W><
-endif
-
 " Close buffers vim
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
@@ -276,7 +270,7 @@ set secure
 let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
 let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor     
 
-imap jj <Esc>
+imap jk <Esc>
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
