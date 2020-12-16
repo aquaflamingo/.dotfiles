@@ -9,19 +9,15 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-rails'
 
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
-
 Plug 'sainnhe/edge'
-"Plug 'joshdick/onedark.vim'
 
 " Conqure of Complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Ruby
-Plug 'tpope/vim-rails'
 
 " general 
 Plug 'janko/vim-test'
@@ -98,6 +94,7 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 
 " Refresh tree
 nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
+
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden=1
@@ -135,8 +132,8 @@ set hid
 au FocusLost * silent! wa
 
 "delete buffer"
-nnoremap <c-d> :bd!<cr>
-nnoremap <leader>b :bp<cr>
+nnoremap <leader>d :bd!<cr>
+nnoremap <leader>p :bp<cr>
 nnoremap <leader>n :bn<cr>
 
 set clipboard+=unnamedplus
@@ -267,6 +264,8 @@ set exrc
 set secure
 
 " Go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
 let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor     
 
@@ -278,3 +277,4 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+set spell
