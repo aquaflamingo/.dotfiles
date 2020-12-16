@@ -1,7 +1,9 @@
 
 # dirs
-alias \@badtb='cd ~/dev/book/badtb-app'
-alias \@tradebaybot='cd ~/dev/tradebay-bot-go'
+alias \@go=$GOPATH
+alias \@dev='~/dev/'
+alias \@bot='~/dev/book/badtb-bot'
+alias \@book='~/Documents/Writing/badtb/writing'
 
 # vim
 alias vimold='vim'
@@ -43,7 +45,7 @@ alias gco="git checkout"
 alias gp="git push"
 alias gbr="git branch | cat"
 alias gf="git commit --fixup"
-alias grco="git rebase --continue"
+alias grc="git rebase --continue"
 alias grom="git rebase origin/master"
 alias grum="git rebase upstream/master"
 alias grename="git branch -m"
