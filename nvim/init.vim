@@ -1,5 +1,4 @@
 " NEOVIM CONFIGURATIONS
-
 set nocompatible
 
 call plug#begin("~/.config/nvim/bundle")
@@ -27,6 +26,7 @@ Plug 'fatih/vim-go'
 
 " Language
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-crystal/vim-crystal'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -278,3 +278,6 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 set spell
+
+" Avoid lag in large files
+set synmaxcol=250
