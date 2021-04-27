@@ -1,4 +1,3 @@
-
 # dirs
 alias \@go=$GOPATH
 alias \@dev='~/dev/'
@@ -48,7 +47,4 @@ alias grc="git rebase --continue"
 alias grom="git rebase origin/master"
 alias grum="git rebase upstream/master"
 alias grename="git branch -m"
-
-# Youtube
-alias youtube='youtube-dl --extract-audio --audio-format mp3'
 
