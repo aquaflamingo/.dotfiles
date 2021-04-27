@@ -7,7 +7,6 @@ alias \@book='~/Documents/Writing/badtb/writing'
 
 # vim
 alias vimold='vim'
-alias v='vim'
 alias vim='nvim'
 
 # Warn before overwriting
