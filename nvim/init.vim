@@ -2,13 +2,11 @@
 set nocompatible
 
 call plug#begin("~/.config/nvim/bundle")
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-rails'
 
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
@@ -16,7 +14,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sainnhe/edge'
 
 " Conqure of Complete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " general 
 Plug 'janko/vim-test'
@@ -26,7 +24,8 @@ Plug 'fatih/vim-go'
 
 " Language
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-crystal/vim-crystal'
+"Plug 'vim-crystal/vim-crystal'
+"Plug 'tpope/vim-rails'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -54,6 +53,7 @@ let g:fzf_action = {
 " fzf in floating window
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 nnoremap <C-p> :Files<CR>
+nnoremap <C-y> :Buffers<CR>
 
 " vim-go
 let g:go_debug_windows = {
@@ -165,12 +165,12 @@ noremap <ESC> :noh<CR><ESC>
 set showcmd
 
 " Highlight current line
-set cursorline
+"set cursorline
 set lazyredraw
 
 " Makes the current line stand out with bold and in the numberline
-hi CursorLine cterm=bold
-hi LineNr cterm=bold ctermfg=0 ctermbg=none
+"hi CursorLine cterm=bold
+"hi LineNr cterm=bold ctermfg=0 ctermbg=none
 
 "display invisible chars
 set list
@@ -205,57 +205,57 @@ if $TERM_PROGRAM =~ "iTerm"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
-" ======= COC =======
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-let g:endwise_no_mappings=1 " dont conflict with endwise
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
+"" ======= COC =======
+"" Don't pass messages to |ins-completion-menu|.
+"set shortmess+=c
+"let g:endwise_no_mappings=1 " dont conflict with endwise
+"" Always show the signcolumn, otherwise it would shift the text each time
+"" diagnostics appear/become resolved.
+"set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"" Use tab for trigger completion with characters ahead and navigate.
+"" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+"" other plugin before putting this into your config.
+"inoremap <silent><expr> <TAB>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"function! s:check_back_space() abort
+  "let col = col('.') - 1
+  "return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
-  " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>": "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-	 endif
+"" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+"" position. Coc only does snippet and additional edit on confirm.
+"if has('patch8.1.1068')
+  "" Use `complete_info` if your (Neo)Vim version supports it.
+  "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>": "\<C-g>u\<CR>"
+"else
+  "imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+	 "endif
 
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+"" Use `[g` and `]g` to navigate diagnostics
+"nmap <silent> [g <Plug>(coc-diagnostic-prev)
+"nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" GoTo code navigation.
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gy <Plug>(coc-type-definition)
-nmap <leader>gi <Plug>(coc-implementation)
-nmap <leader>gr <Plug>(coc-references)
+"" GoTo code navigation.
+"nmap <leader>gd <Plug>(coc-definition)
+"nmap <leader>gy <Plug>(coc-type-definition)
+"nmap <leader>gi <Plug>(coc-implementation)
+"nmap <leader>gr <Plug>(coc-references)
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+"" Highlight the symbol and its references when holding the cursor.
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+"" Symbol renaming.
+"nmap <leader>rn <Plug>(coc-rename)
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"" Add (Neo)Vim's native statusline support.
+"" NOTE: Please see `:h coc-status` for integrations with external plugins that
+"" provide custom statusline: lightline.vim, vim-airline.
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ----- END COC
 
@@ -280,4 +280,4 @@ nnoremap <Down> :echoe "Use j"<CR>
 set spell
 
 " Avoid lag in large files
-set synmaxcol=250
+" set synmaxcol=250
