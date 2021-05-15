@@ -1,6 +1,7 @@
 # dirs
 alias \@go=$GOPATH
 alias \@dev='~/dev/'
+alias \@tools='~/tools/'
 alias \@bot='~/dev/book/badtb-bot'
 alias \@book='~/Documents/Writing/badtb/writing'
 

@@ -30,8 +30,3 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # FZF bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-. /usr/local/opt/asdf/asdf.sh
-
-. /usr/local/opt/asdf/asdf.sh
