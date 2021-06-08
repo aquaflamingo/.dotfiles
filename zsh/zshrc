@@ -22,11 +22,9 @@ source $ZSH/oh-my-zsh.sh
 source $DOTFILES/alias.zsh
 source $DOTFILES/language.zsh
 source $DOTFILES/func.zsh
+source $DOTFILES/env.zsh
 
 source $PRIV
-
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # FZF bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
