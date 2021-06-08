@@ -9,8 +9,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 
-Plug 'vim-airline/vim-airline'
-Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
+"Plug 'airblade/vim-gitgutter'
 
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
@@ -40,7 +40,7 @@ Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 set termguicolors
-colorscheme challenger-deep
+colorscheme challenger_deep
 map <Leader>* :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -53,7 +53,8 @@ let g:fzf_action = {
 
 " fzf in floating window
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-G> :GFiles<CR>
 nnoremap <C-y> :Buffers<CR>
 
 " vim-go
