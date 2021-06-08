@@ -2,15 +2,14 @@
 set nocompatible
 
 call plug#begin("~/.config/nvim/bundle")
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-rails'
 
 Plug 'itchyny/lightline.vim'
-"Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
@@ -26,7 +25,6 @@ Plug 'fatih/vim-go'
 " Language
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-crystal/vim-crystal'
-"Plug 'tpope/vim-rails'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -57,15 +55,6 @@ nnoremap <C-p> :Files<CR>
 nnoremap <C-G> :GFiles<CR>
 nnoremap <C-y> :Buffers<CR>
 
-" vim-go
-let g:go_debug_windows = {
-      \ 'vars':       'rightbelow 60vnew',
-      \ 'stack':      'rightbelow 10new',
-\ }
-
-" Use '' to copy to mac system keyboard
-vmap '' :w !pbcopy<CR><CR>
-
 " Use :W to create dir before saving
 function WriteCreatingDirs()
     execute ':silent !mkdir -p %:h'
@@ -84,23 +73,6 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
-" Airline
-" Tabs for airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
-" NerdTree
-" - Toggle
-nnoremap <Leader>f :NERDTreeToggle<Enter>
-
-" Refresh tree
-nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeShowHidden=1
-
 " Ctrl SF
 nmap     <C-F>f <Plug>CtrlSFPrompt
 vmap     <C-F>f <Plug>CtrlSFVwordExec
@@ -118,8 +90,8 @@ map <leader>0 :tablast<cr>
 
 " ---- start my keys
 " Autosave buffers when focus lost
-set hid
-au FocusLost * silent! wa
+"set hid
+"au FocusLost * silent! wa
 
 "delete buffer"
 nnoremap <leader>d :bd!<cr>
@@ -128,9 +100,7 @@ nnoremap <leader>n :bn<cr>
 
 set clipboard+=unnamedplus
 
-nnoremap <leader>gfa :Git fetch --all<CR>
-nnoremap <leader>grum :Git rebase upstream/master<CR>
-nnoremap <leader>grom :Git rebase origin/master<CR>
+" vim-fugitive
 nnoremap <leader>gs :Gst<cr>
 
 " Quickly open/reload vim
@@ -142,9 +112,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Leader e to edit file in same location as current path
-nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
 
 " Remove highlight on esc
 noremap <ESC> :noh<CR><ESC>
@@ -169,9 +136,7 @@ match Error /\v\s+$/
 syntax on " Syntax highlighting
 
 set number " Set line numbers
-"set relativenumber " Set line numbers
 
-" set t_Co=256
 set tabstop=2
 set shiftwidth=3
 set noexpandtab " Use tab characters not spaces
@@ -183,7 +148,7 @@ set ignorecase    " Ignore case when searching
 set smartcase     " unless we type a capital
 
 if has("autocmd")
-"	filetype plugin indent on
+	filetype plugin indent on
 endif
 
 " Change cursor shape between insert and normal mode in iTerm2.app
