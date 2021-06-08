@@ -2,8 +2,6 @@
 alias \@go=$GOPATH
 alias \@dev='~/dev/'
 alias \@tools='~/tools/'
-alias \@bot='~/dev/book/badtb-bot'
-alias \@book='~/Documents/Writing/badtb/writing'
 
 # vim
 alias vimold='vim'
@@ -15,8 +13,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # Docker
-alias d='docker'
-alias dps='docker ps'
 alias dockerterm='docker exec -it'
 alias dockerbuild='docker build -t'
 alias dockeripd="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
@@ -39,7 +35,6 @@ alias reload="source ~/.zshrc"
 alias ga="git add -A"
 alias gc="git commit"
 alias gcm="git commit -m"
-alias gcob="git checkout -b"
 alias gco="git checkout"
 alias gp="git push"
 alias gbr="git branch | cat"
