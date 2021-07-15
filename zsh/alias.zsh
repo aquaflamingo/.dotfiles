@@ -1,7 +1,6 @@
 # dirs
 alias \@go=$GOPATH
 alias \@dev='~/dev/'
-alias \@tools='~/tools/'
 
 # vim
 alias vimold='vim'
@@ -9,12 +8,8 @@ alias vim='nvim'
 
 # Warn before overwriting
 alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
 
 # Docker
-alias dockerterm='docker exec -it'
-alias dockerbuild='docker build -t'
 alias dockeripd="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 
 # python
