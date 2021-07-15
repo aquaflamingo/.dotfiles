@@ -9,6 +9,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rails'
 
 Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-buftabline'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
