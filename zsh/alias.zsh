@@ -1,6 +1,6 @@
 # dirs
 alias \@go=$GOPATH
-alias \@dev='~/dev/'
+alias \@src='~/src/'
 
 # vim
 alias vimold='vim'
