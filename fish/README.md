@@ -5,6 +5,8 @@
 Clone repo
 ```
 $ git clone git@github.com:dotfiles .dotfiles
+
+# Symlink to config directory
 ln -s .dotfiles/fish ~/.config/fish
 ```
 
