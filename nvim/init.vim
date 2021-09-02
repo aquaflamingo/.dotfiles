@@ -6,19 +6,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-rails'
 
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-
-" Conqure of Complete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" general 
-Plug 'janko/vim-test'
 
 " Go 
 Plug 'fatih/vim-go'
@@ -30,9 +23,6 @@ Plug 'vim-crystal/vim-crystal'
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-" greppin
-Plug 'dyng/ctrlsf.vim'
 
 " Vim Tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -99,7 +89,7 @@ nnoremap <leader>d :bd!<cr>
 nnoremap <leader>p :bp<cr>
 nnoremap <leader>n :bn<cr>
 
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 " vim-fugitive
 nnoremap <leader>gs :Gst<cr>
@@ -218,3 +208,23 @@ set spell
 
 " vim crystal
 nmap <Leader>c :CrystalFormat<cr>
+
+""""""""""""""""""""""""""""""""""""""
+" SEARCH
+""""""""""""""""""""""""""""""""""""""
+
+" Set grep executable to RipGrep
+if executable("rg")
+    set grepprg=rg\ --vimgrep\ --no-heading
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
+" Test FZF and RipGrep
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --ignore-case '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+
+nnoremap <C-f>a :Rg 
