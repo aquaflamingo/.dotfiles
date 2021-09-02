@@ -1,23 +1,33 @@
-" NEOVIM CONFIGURATIONS
-set nocompatible
+""""""""""""""""""""""""""""""""""""""""""""""""
+" Here be the Neovim Configurations!
+"
+" author: @aquaflamingo
+""""""""""""""""""""""""""""""""""""""""""""""""
+set completeopt=longest,menuone
 
 call plug#begin("~/.config/nvim/bundle")
-" TPOPE
+" Basics
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 
+" APPEARANCE
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 Plug 'airblade/vim-gitgutter'
-
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
-
-" LANGUAGE
+" LANGUAGE SERVER PROTOCOLS
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+" Install snippet engine (This example installs [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip))
+Plug 'hrsh7th/vim-vsnip'
+" Install the buffer completion source
+Plug 'hrsh7th/cmp-buffer'
 
+" TODO - remove complete
+" LANGUAGES
 Plug 'fatih/vim-go'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-crystal/vim-crystal'
@@ -139,7 +149,24 @@ lua << EOF
 	 require'lspconfig'.gopls.setup{}
 EOF
 
-
+" Initialize Autocompletion via nvim-cmp
+lua <<EOF
+  local cmp = require'cmp'
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+      end,
+    },
+    mapping = {
+      ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = {
+      { name = '...' },
+      ...
+    }
+  })
+EOF
 """""""""""""""""""""""""""""""""""""""""""""""
 " SEARCH
 """""""""""""""""""""""""""""""""""""""""""""""
