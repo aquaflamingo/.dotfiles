@@ -18,6 +18,7 @@ alias pip=pip3
 
 # configs
 alias ,ez="vim ~/.zsh"
+alias ,eg="vim ~/.gitconfig"
 alias ,eza="vim ~/.zsh/alias.zsh"
 alias ,ev="vim ~/.vimrc"
 alias ,et="vim ~/.tmux.conf"
