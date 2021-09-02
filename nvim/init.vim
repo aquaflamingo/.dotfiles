@@ -2,6 +2,7 @@
 set nocompatible
 
 call plug#begin("~/.config/nvim/bundle")
+" TPOPE
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
@@ -14,7 +15,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
 
-" Language
+" LANGUAGE
+Plug 'neovim/nvim-lspconfig'
+
 Plug 'fatih/vim-go'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-crystal/vim-crystal'
