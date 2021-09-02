@@ -1,7 +1,5 @@
 setopt autocd
-# fishy
-# daveverwer
-ZSH_THEME="daveverwer"
+# ZSH_THEME="daveverwer"
 
 plugins=(
   osx
