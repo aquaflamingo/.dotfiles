@@ -13,10 +13,9 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
-" Go 
-Plug 'fatih/vim-go'
 
 " Language
+Plug 'fatih/vim-go'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-crystal/vim-crystal'
 
@@ -28,50 +27,52 @@ Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
+"""""""""""""""""""""""""""""""""""""""""""""""
+" APPEARANCE 
+"""""""""""""""""""""""""""""""""""""""""""""""
 set termguicolors
-colorscheme challenger_deep
+
+" Set current colour scheme
+colorscheme challenger_deep 
+
+" Use key to toggle between light and dark mode
 map <Leader>* :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-" fzf
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" fzf in floating window
+" Set layout for FZF Window
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-nnoremap <C-p> :Files<CR>
-nnoremap <C-G> :GFiles<CR>
-nnoremap <C-y> :Buffers<CR>
 
-" Use :W to create dir before saving
-function WriteCreatingDirs()
-    execute ':silent !mkdir -p %:h'
-    write
-endfunction
 
-command! W call WriteCreatingDirs()
+" Change cursor shape between insert and normal mode in iTerm2.app
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""" SOURCE CONTROL
 
 " Close buffers vim
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Testing
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
+" Use GS for Git Status
+nnoremap <leader>gs :Gst<cr>
 
-" Ctrl SF
-nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-F>f <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" NAVIGATION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" Navigate windows with C+<HJLK> 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Delete buffers
+nnoremap <leader>d :bd!<cr>
+" Previous buffer
+nnoremap <leader>p :bp<cr>
+" Next buffer
+nnoremap <leader>n :bn<cr>
 
 " Tabs
 map <leader>1 1gt
@@ -79,139 +80,70 @@ map <leader>2 2gt
 map <leader>3 3gt
 map <leader>0 :tablast<cr>
 
-" ---- start my keys
-" Autosave buffers when focus lost
-"set hid
-"au FocusLost * silent! wa
 
-"delete buffer"
-nnoremap <leader>d :bd!<cr>
-nnoremap <leader>p :bp<cr>
-nnoremap <leader>n :bn<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Buffers and Editor Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on " Syntax highlighting
 
-" set clipboard+=unnamedplus
+set showcmd " show the command you are typing
+set lazyredraw " Highlight current line
+set list "display invisible chars
+set listchars=tab:⇥·,trail:· 
+match Error /\v\s+$/ " Show trailing spaces in red
 
-" vim-fugitive
-nnoremap <leader>gs :Gst<cr>
+
+set number " Set line numbers
+set tabstop=2 " Tab length of 2
+set shiftwidth=3 " Shift of 3
+set noexpandtab " Use tab characters not spaces
+set spell " Turn spelling on
+
+" Remove highlight on esc
+noremap <ESC> :noh<CR><ESC>
+
+" Determine syntax based on file type
+if has("autocmd")
+	filetype plugin indent on
+endif
 
 " Quickly open/reload vim
 nnoremap <leader>ev :split ~/.vimrc<CR>  
 nnoremap <leader>sv :source ~/.vimrc<CR>    
 
-" thoughtbot splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+"""""""""""""""""""""""""""""""""""""""""""""""
+" PROGRAMMING LANGUAGE
+"""""""""""""""""""""""""""""""""""""""""""""""
+let g:go_def_mode='gopls' " Use gopls for definitions
+let g:go_info_mode='gopls' " Use gopls for info
+let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
+let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor     
 
-" Remove highlight on esc
-noremap <ESC> :noh<CR><ESC>
+" Map crystal format
+nmap <Leader>c :CrystalFormat<cr> 
 
-" ---- end my hot keys
+"""""""""""""""""""""""""""""""""""""""""""""""
+" LANGUAGE SERVER PROTOCOLS
+"""""""""""""""""""""""""""""""""""""""""""""""
+" Python: https://github.com/microsoft/pyright
+" Ruby: https://github.com/microsoft/pyright
+" Crystal: https://github.com/elbywan/crystalline
+" Go: https://github.com/golang/tools/tree/master/gopls
 
-" show the command you are typing
-set showcmd
+lua << EOF
+	 require'lspconfig'.pyright.setup{}
+	 require'lspconfig'.solargraph.setup{}
+	 require'lspconfig'.gopls.setup{}
+EOF
 
-" Highlight current line
-set lazyredraw
 
-" Makes the current line stand out with bold and in the numberline
-
-"display invisible chars
-set list
-set listchars=tab:⇥·,trail:·
-
-"Trailing spaces in red
-match Error /\v\s+$/
-
-syntax on " Syntax highlighting
-
-set number " Set line numbers
-
-set tabstop=2
-set shiftwidth=3
-set noexpandtab " Use tab characters not spaces
-
-" ======== Searching ========
+"""""""""""""""""""""""""""""""""""""""""""""""
+" SEARCH
+"""""""""""""""""""""""""""""""""""""""""""""""
 set incsearch     " find next match as we type the search
 set hlsearch      " Highlight searchs by default
 set ignorecase    " Ignore case when searching
 set smartcase     " unless we type a capital
-
-if has("autocmd")
-	filetype plugin indent on
-endif
-
-" Change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm"
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
-
-" ======= COC =======
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-let g:endwise_no_mappings=1 " dont conflict with endwise
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
-	" Use `complete_info` if your (Neo)Vim version supports it.
-	inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>": "\<C-g>u\<CR>"
-else
-	imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-	 endif
-
-" GoTo code navigation.
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gy <Plug>(coc-type-definition)
-nmap <leader>gi <Plug>(coc-implementation)
-nmap <leader>gr <Plug>(coc-references)
-
-"" Highlight the symbol and its references when holding the cursor.
-"autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" ----- END COC
-
-" Go
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
-let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor     
-
-set spell
-
-" vim crystal
-nmap <Leader>c :CrystalFormat<cr>
-
-""""""""""""""""""""""""""""""""""""""
-" SEARCH
-""""""""""""""""""""""""""""""""""""""
 
 " Set grep executable to RipGrep
 if executable("rg")
@@ -219,7 +151,7 @@ if executable("rg")
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-" Test FZF and RipGrep
+" Use FZF and RipGrep to search for files
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
       \   'rg --column --line-number --no-heading --color=always --ignore-case '.shellescape(<q-args>), 1,
@@ -227,4 +159,27 @@ command! -bang -nargs=* Rg
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
 
-nnoremap <C-f>a :Rg 
+nnoremap <C-f> :Rg 
+
+" Set FZF Split Hot Keys
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Set FZF Keys for searching
+nnoremap <C-p> :Files<CR>
+nnoremap <C-G> :GFiles<CR>
+nnoremap <C-y> :Buffers<CR>
+
+"""""""""""""""""""""""""""""""""""""""
+" FUNCTIONS
+"""""""""""""""""""""""""""""""""""""""
+" When inside a buffer use :W to create the parent directory and save the
+" buffer
+function WriteCreatingDirs()
+    execute ':silent !mkdir -p %:h'
+    write
+endfunction
+
+command! W call WriteCreatingDirs()
