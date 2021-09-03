@@ -3,38 +3,42 @@ How to bootstrap a new 127.0.0.1.
 
 ## MacOSX
 * `brew`
+* `git`
+	 * `diff-so-fancy`
 
 ## Programming Languages
 ### Python
-* python3
-* pip
-* pyright (Language Server Protocol)
+* `python3`
+* `pip`
+* `pyright` (Language Server Protocol)
+
 ### Ruby
-* rbenv (Ruby Version Management)
-* ruby
-* solargraph (Language Server Protocol)
-* rubocop (lint)
-* Rails (Web application development)
+* `rbenv` (Ruby Version Management)
+* `ruby`
+* `solargraph` (Language Server Protocol)
+* `rubocop` (lint)
+* `rails` (Web application development)
 
 ### Go
-* go
-* gopls (Language Server Protocol)
+* `go`
+* `gopls` (Language Server Protocol)
 
 ### Crystal
-* crystal
-* Crystal Language Server Protocol
+* `crystal`
+* `crystalline` [ref](https://github.com/elbywan/crystalline)
 
 ### JavaScript
-* Node Version Manager
-* NodeJS
+* `nvm`
+* `node`
+* `yarn`
 
 ## Editor
 * `neovim`
-* Neovim Plugins
+	 * plugins
 
 ## Shell
-* ZSH
-* ripgrep
-* tmux
-* tmuxinator
-* FZF
+* `zsh`
+* `ripgrep`
+* `tmux`
+* `tmuxinator`
+* `fzf`
