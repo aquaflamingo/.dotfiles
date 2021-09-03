@@ -18,6 +18,7 @@ alias pip=pip3
 
 # configs
 alias ,ez="vim ~/.zsh"
+alias ,ed="vim $DOTFILES"
 alias ,eg="vim ~/.gitconfig"
 alias ,eza="vim ~/.zsh/alias.zsh"
 alias ,ev="vim ~/.vimrc"
