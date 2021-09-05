@@ -18,11 +18,7 @@ Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
 " LANGUAGE SERVER PROTOCOLS
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp'
-" Install snippet engine (This example installs [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip))
-Plug 'hrsh7th/vim-vsnip'
-" Install the buffer completion source
-Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-compe'
 
 " TODO - remove complete
 " LANGUAGES
@@ -51,23 +47,17 @@ map <Leader>* :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-" Set layout for FZF Window
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
-
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
     let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""" SOURCE CONTROL
 
-" Close buffers vim
-autocmd BufReadPost fugitive://* set bufhidden=delete
-
-" Use GS for Git Status
-nnoremap <leader>gs :Gst<cr>
+" Plugin Configuration
+source ~/.config/nvim/plug-config/fugitive.vim
+source ~/.config/nvim/plug-config/fzf.vim
+source ~/.config/nvim/plug-config/vim-crystal.vim
+source ~/.config/nvim/plug-config/vim-go.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " NAVIGATION
@@ -91,7 +81,6 @@ map <leader>2 2gt
 map <leader>3 3gt
 map <leader>0 :tablast<cr>
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffers and Editor Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -102,7 +91,6 @@ set lazyredraw " Highlight current line
 set list "display invisible chars
 set listchars=tab:⇥·,trail:· 
 match Error /\v\s+$/ " Show trailing spaces in red
-
 
 set number " Set line numbers
 set tabstop=2 " Tab length of 2
@@ -121,17 +109,6 @@ endif
 " Quickly open/reload vim
 nnoremap <leader>ev :split ~/.vimrc<CR>  
 nnoremap <leader>sv :source ~/.vimrc<CR>    
-
-"""""""""""""""""""""""""""""""""""""""""""""""
-" PROGRAMMING LANGUAGE
-"""""""""""""""""""""""""""""""""""""""""""""""
-let g:go_def_mode='gopls' " Use gopls for definitions
-let g:go_info_mode='gopls' " Use gopls for info
-let g:go_fmt_command = "goimports"    " Run goimports along gofmt on each save     
-let g:go_auto_type_info = 1           " Automatically get signature/type info for object under cursor     
-
-" Map crystal format
-nmap <Leader>c :CrystalFormat<cr> 
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " LANGUAGE SERVER PROTOCOLS
@@ -181,33 +158,6 @@ set incsearch     " find next match as we type the search
 set hlsearch      " Highlight searchs by default
 set ignorecase    " Ignore case when searching
 set smartcase     " unless we type a capital
-
-" Set grep executable to RipGrep
-if executable("rg")
-    set grepprg=rg\ --vimgrep\ --no-heading
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
-
-" Use FZF and RipGrep to search for files
-command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always --ignore-case '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
-
-nnoremap <C-f> :Rg 
-
-" Set FZF Split Hot Keys
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" Set FZF Keys for searching
-nnoremap <C-p> :Files<CR>
-nnoremap <C-G> :GFiles<CR>
-nnoremap <C-y> :Buffers<CR>
 
 """""""""""""""""""""""""""""""""""""""
 " FUNCTIONS
