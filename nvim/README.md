@@ -2,10 +2,7 @@
 
 Configurations for neovim.
 
-### Plugins
-* Languages: `vim-polygot`, `vim-rails`, `vim-go`, `python-mode`
-* Plugin System: `vim-plug`
-* IDE: `nerdtree`, `nerdcommenter`, `ale`, `vim-test`
+The setup includes neovim 0.5.0's new native language server protocol
 
 ## Usage
 
