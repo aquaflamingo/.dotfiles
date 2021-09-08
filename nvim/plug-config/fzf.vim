@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 " Ripgrep 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-f> :Rg 
+nnoremap <C-f> :Rg
 
 " Set grep executable to RipGrep
 if executable("rg")

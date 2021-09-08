@@ -3,7 +3,6 @@
 " Use key to toggle between light and dark mode
 map <Leader>* :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
-
 " Navigate windows with C+<HJLK> 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -30,3 +29,7 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 " Create leader key map for omnifunc 
 " call
 imap <Leader><Leader> <C-x><C-o>
+
+" Paste and copy from system clipboard
+nnoremap <leader>P "+p
+vmap <leader>Y "+y

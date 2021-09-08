@@ -42,7 +42,7 @@ if has("autocmd")
 endif
 
 " Automatically change current working directory to the file being edited
-set autochdir
+" set autochdir
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " SEARCH
