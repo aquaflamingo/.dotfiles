@@ -1,6 +1,5 @@
 setopt autocd
 
-
 ZSH_THEME="lambda"
 
 plugins=(
@@ -25,11 +24,10 @@ source $ZSH/oh-my-zsh.sh
 source $ZFILES/alias.zsh
 source $ZFILES/language.zsh
 source $ZFILES/func.zsh
-source $ZFILES/env.zsh
+source $ZFILES/vcs.zsh
+source $ZFILES/docker.zsh
+source $ZFILES/fzf.zsh
+source $ZFILES/python.zsh
 
 source $PRIV
 
-# FZF bindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# Ignore node modules
-export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,env/*,venv/*,__pycache__/*}"'
