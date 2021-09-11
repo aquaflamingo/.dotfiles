@@ -44,3 +44,5 @@ vmap <leader>Y "+y
 nnoremap <leader>v :vsp 
 " Quick horizontal split
 nnoremap <leader>s :sp 
+" Quick edit
+nnoremap <leader>e :e 
