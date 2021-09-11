@@ -1,2 +1,4 @@
 -- See https://github.com/microsoft/pyright
-require'lspconfig'.pyright.setup{}
+require'lspconfig'.pyright.setup{
+
+}
