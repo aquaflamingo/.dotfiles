@@ -30,6 +30,17 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 " call
 imap <Leader><Leader> <C-x><C-o>
 
-" Paste and copy from system clipboard
+" Paste from system clipboard in visual mode
+vmap <leader>P "+p
+" Paste from system clipboard in normal mode
 nnoremap <leader>P "+p
+
+" Yank entire line in normal mode to system clipboard
+nnoremap <leader>Y "+yy
+" Yank selection in visual mode to system clipboard
 vmap <leader>Y "+y
+
+" Quick vertical split
+nnoremap <leader>v :vsp 
+" Quick horizontal split
+nnoremap <leader>s :sp 
