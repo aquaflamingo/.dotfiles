@@ -25,6 +25,8 @@ Plug 'vim-crystal/vim-crystal'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'dyng/ctrlsf.vim'
+
 " Vim Tmux
 Plug 'christoomey/vim-tmux-navigator'
 call plug#end()

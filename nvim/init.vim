@@ -10,6 +10,7 @@ source ~/.config/nvim/plug-config/fugitive.vim
 source ~/.config/nvim/plug-config/fzf.vim
 source ~/.config/nvim/plug-config/vim-crystal.vim
 source ~/.config/nvim/plug-config/vim-go.vim
+source ~/.config/nvim/plug-config/ctrlsf.vim
 source ~/.config/nvim/plug-config/lsp-config.vim
 
 luafile ~/.config/nvim/lua/plugins/compe-config.lua
