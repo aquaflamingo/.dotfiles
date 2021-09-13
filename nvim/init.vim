@@ -24,6 +24,7 @@ luafile ~/.config/nvim/lua/lsp/bash-ls.lua
 luafile ~/.config/nvim/lua/lsp/python-ls.lua
 luafile ~/.config/nvim/lua/lsp/docker-ls.lua
 luafile ~/.config/nvim/lua/lsp/vim-ls.lua
+luafile ~/.config/nvim/lua/lsp/rust-ls.lua
 
 source ~/.config/nvim/general/functions.vim
 source ~/.config/nvim/general/settings.vim
