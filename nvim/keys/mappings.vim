@@ -45,4 +45,4 @@ nnoremap <leader>v :vsp
 " Quick horizontal split
 nnoremap <leader>s :sp 
 " Quick edit
-nnoremap <leader>e :e 
+nnoremap <leader>ee :e 
