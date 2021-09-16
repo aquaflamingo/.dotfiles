@@ -4,7 +4,7 @@ Configurations for shell
 
 ## Usage
 ```
-$ git clone git@github.com:robertsimoes/.dotfiles ~/.dotfiles
+$ git clone git@github.com:aquaflamingo/.dotfiles ~/.dotfiles
 ```
 
 For some of the programs, there are specific instructions in the directories for linking and specific setup. 
@@ -17,6 +17,3 @@ Follow instructions in:
 
 ## Licence
 This repository is licenced under [MIT](https://opensource.org/licenses/MIT)
-
-## Author
-Robert Simoes

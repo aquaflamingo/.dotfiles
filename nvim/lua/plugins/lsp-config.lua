@@ -37,13 +37,13 @@ end
 -- Map buffer local keybindings when the language server attaches
 --
 -- See https://github.com/castwide/solargraph
-	 -- See https://github.com/microsoft/pyright
-	 -- Source https://github.com/rust-lang/rls
-	 -- See https://github.com/golang/tools/tree/master/gopls
-	 -- See https://github.com/bash-lsp/bash-language-server
-	 -- See https://github.com/elbywan/crystalline
-	 -- See Docker
-	 -- See Vim
+-- See https://github.com/microsoft/pyright
+-- Source https://github.com/rust-lang/rls
+-- See https://github.com/golang/tools/tree/master/gopls
+-- See https://github.com/bash-lsp/bash-language-server
+-- See https://github.com/elbywan/crystalline
+-- See Docker
+-- See Vim
 local servers = {
 	 ruby = {'solargraph'},
 	 python = {'pyright'}, 
@@ -58,10 +58,10 @@ local servers = {
 for k, lsp in pairs(servers) do
 	 server = lsp[1]
 
-  nvim_lsp[server].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
+	 nvim_lsp[server].setup {
+			on_attach = on_attach,
+			flags = {
+				 debounce_text_changes = 150,
+			}
+	 }
 end

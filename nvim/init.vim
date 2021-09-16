@@ -1,7 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Here be the Neovim Configurations!
-"
-" author: @aquaflamingo
 
 source ~/.config/nvim/vim-plug/plugins.vim
 
