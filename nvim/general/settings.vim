@@ -19,8 +19,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffers and Editor Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax on " Syntax highlighting
-
 set showcmd " show the command you are typing
 set lazyredraw " Highlight current line
 set list "display invisible chars
@@ -36,10 +34,11 @@ set spell " Turn spelling on
 " Remove highlight on esc
 noremap <ESC> :noh<CR><ESC>
 
-" Determine syntax based on file type
-if has("autocmd")
-	filetype plugin indent on
-endif
+" Syntax highlighting
+filetype plugin indent on
+if !exists("g:syntax_on")
+    syntax enable
+endif 
 
 " Automatically change current working directory to the file being edited
 " set autochdir
