@@ -29,6 +29,6 @@ source $ZFILES/docker.zsh
 source $ZFILES/fzf.zsh
 source $ZFILES/python.zsh
 source $ZFILES/rust.zsh
+source $ZFILES/macos.zsh
 
 source $PRIV
-
