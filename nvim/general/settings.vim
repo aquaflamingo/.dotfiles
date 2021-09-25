@@ -4,7 +4,7 @@
 set termguicolors
 
 " Set current colour scheme
-colorscheme challenger_deep 
+colorscheme onedark 
 
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1

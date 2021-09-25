@@ -9,7 +9,8 @@ Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 Plug 'airblade/vim-gitgutter'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+" Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'joshdick/onedark.vim'
 
 " LANGUAGE SERVER PROTOCOLS
 Plug 'neovim/nvim-lspconfig'
@@ -18,7 +19,7 @@ Plug 'hrsh7th/nvim-compe'
 " TODO - remove complete
 " LANGUAGES
 Plug 'fatih/vim-go'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'vim-crystal/vim-crystal'
 
 " FZF
@@ -29,4 +30,7 @@ Plug 'dyng/ctrlsf.vim'
 
 " Vim Tmux
 Plug 'christoomey/vim-tmux-navigator'
+
+" Tree sitter parsing engine
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 call plug#end()

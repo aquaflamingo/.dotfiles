@@ -31,18 +31,21 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 imap <Leader><Leader> <C-x><C-o>
 
 " Paste from system clipboard in visual mode
-vmap <leader>P "+p
+vmap <leader>; "+p
 " Paste from system clipboard in normal mode
-nnoremap <leader>P "+p
+nnoremap <leader>; "+p
 
 " Yank entire line in normal mode to system clipboard
 nnoremap <leader>Y "+yy
 " Yank selection in visual mode to system clipboard
-vmap <leader>Y "+y
+vmap <leader>y "+y
 
 " Quick vertical split
 nnoremap <leader>v :vsp 
 " Quick horizontal split
 nnoremap <leader>s :sp 
 " Quick edit
-nnoremap <leader>ee :e 
+nnoremap <leader>ee :e
+
+" Print the current buffer path
+nnoremap <leader>g :echo expand("%")<CR>
