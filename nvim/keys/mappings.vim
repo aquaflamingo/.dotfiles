@@ -34,6 +34,8 @@ imap <Leader><Leader> <C-x><C-o>
 vmap <leader>; "+p
 " Paste from system clipboard in normal mode
 nnoremap <leader>; "+p
+" Paste while in insert mode
+imap <leader>; "+p
 
 " Yank entire line in normal mode to system clipboard
 nnoremap <leader>Y "+yy
