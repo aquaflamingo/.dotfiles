@@ -7,7 +7,8 @@ Plug 'tpope/vim-commentary'
 
 " APPEARANCE
 Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-buftabline'
+Plug 'akinsho/bufferline.nvim'
+" Plug 'ap/vim-buftabline'
 Plug 'airblade/vim-gitgutter'
 " Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'joshdick/onedark.vim'

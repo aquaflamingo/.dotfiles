@@ -14,6 +14,7 @@ source ~/.config/nvim/plug-config/ctrlsf.vim
 " https:://github.com/neovim/nvim-lspconfig/blb/master/CONFIG.md
 luafile ~/.config/nvim/lua/plugins/lsp-config.lua
 luafile ~/.config/nvim/lua/plugins/compe-config.lua
+luafile ~/.config/nvim/lua/plugins/bufferline.lua
 
 source ~/.config/nvim/general/functions.vim
 source ~/.config/nvim/general/settings.vim
