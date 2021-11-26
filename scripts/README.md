@@ -3,18 +3,19 @@ How to bootstrap a new 127.0.0.1.
 
 ## MacOSX
 * `brew`
+	 * `act` - GitHub Actions
 * `git`
-	 * `diff-so-fancy`
+	 * `diff-so-fancy` - Better git diff
 
 ## Programming Languages
 ### Python
-* `python3`
-* `pip`
+* `python3` (No more python 2 pls)
+* `pip` (Package management)
 * `pyright` (Language Server Protocol)
 
 ### Ruby
 * `rbenv` (Ruby Version Management)
-* `ruby`
+* `ruby` (da best language eva)
 * `solargraph` (Language Server Protocol)
 * `rubocop` (lint)
 * `rails` (Web application development)
@@ -28,17 +29,17 @@ How to bootstrap a new 127.0.0.1.
 * `crystalline` [ref](https://github.com/elbywan/crystalline)
 
 ### JavaScript
-* `nvm`
-* `node`
-* `yarn`
+* `nvm` (Node version management)
+* `node` (For all the javascripts)
+* `yarn` (Cats)
 
 ## Editor
-* `neovim`
+* `neovim` (Terminal editing)
 	 * plugins
 
 ## Shell
-* `zsh`
-* `ripgrep`
-* `tmux`
-* `tmuxinator`
-* `fzf`
+* `zsh` (this one!)
+* `ripgrep` (`rg`)
+* `tmux` (Terminal multiplexor)
+* `tmuxinator` (setup projects)
+* `fzf` (better fuzzy search)
