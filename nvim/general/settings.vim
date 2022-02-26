@@ -12,7 +12,7 @@ endif
 
 set termguicolors 
 " Set current colour scheme
-colorscheme onedark 
+colorscheme desert 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffers and Editor Settings
