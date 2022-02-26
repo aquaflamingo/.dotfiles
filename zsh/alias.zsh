@@ -1,5 +1,6 @@
 # dirs
 alias \@go=$GOPATH
+alias \@dotfiles='~/.dotfiles'
 alias \@src='~/src/'
 
 # vim
@@ -34,9 +35,17 @@ alias gc="git commit"
 alias gcm="git commit -m"
 alias gco="git checkout"
 alias gp="git push"
+# Print branches
 alias gbr="git branch | cat"
+# Git fixup commit
 alias gf="git commit --fixup"
+# Git fetch and reset
+alias gfrom="git rebase origin/master && git reset --hard origin/master"
+# Git fetch and reset upstream
+alias gfrum="git rebase upstream/master && git reset --hard upstream/master"
+# Rebase origin master
 alias grom="git rebase origin/master"
+# Rebase upstream master
 alias grum="git rebase upstream/master"
 alias grename="git branch -m"
 
