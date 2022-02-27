@@ -40,9 +40,9 @@ alias gbr="git branch | cat"
 # Git fixup commit
 alias gf="git commit --fixup"
 # Git fetch and reset
-alias gfrom="git rebase origin/master && git reset --hard origin/master"
+alias gfrom="git fetch origin/master && git reset --hard origin/master"
 # Git fetch and reset upstream
-alias gfrum="git rebase upstream/master && git reset --hard upstream/master"
+alias gfrum="git fetch upstream/master && git reset --hard upstream/master"
 # Rebase origin master
 alias grom="git rebase origin/master"
 # Rebase upstream master
