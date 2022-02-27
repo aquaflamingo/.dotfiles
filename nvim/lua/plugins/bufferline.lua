@@ -11,11 +11,11 @@ require"bufferline".setup{
 			tab_selected = {
 				 guifg = "yellow",
 			},
-			buffer_selected = {
-					guifg = normal_fg,
-					guibg = 'darkblue',
-					gui = "bold,italic"
-			},
+			-- buffer_selected = {
+			-- 		guifg = normal_fg,
+			-- 		guibg = 'darkblue',
+			-- 		gui = "bold,italic"
+			-- },
 	 },
 	 groups = {
 			options = {
