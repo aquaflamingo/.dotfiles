@@ -4,6 +4,19 @@ require"bufferline".setup{
 			show_buffer_close_icons = false,
 			show_close_icon = false,
 	 },
+	 highlights = {
+			tab = {
+				 guifg = 'grey',
+			},
+			tab_selected = {
+				 guifg = "yellow",
+			},
+			buffer_selected = {
+					guifg = normal_fg,
+					guibg = 'darkblue',
+					gui = "bold,italic"
+			},
+	 },
 	 groups = {
 			options = {
 				 toggle_hidden_on_enter = true -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
@@ -25,10 +38,10 @@ require"bufferline".setup{
 							 return buf.filename:match('%.md') or buf.filename:match('%.txt')
 						end,
 						separator = { -- Optional
-							 style = require('bufferline.groups').separator.tab
-						}
-				 },
-			}
+						style = require('bufferline.groups').separator.tab
+				 }
+			},
 	 }
+}
 }
 
