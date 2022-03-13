@@ -28,9 +28,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.
 
 Finito!
 
-# Author
-@RobertSimoes
-
 ## Licence
 This repository is licenced under [MIT-0](https://github.com/aws/mit-0).
 
