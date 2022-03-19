@@ -1,4 +1,6 @@
 setopt autocd
+# Profiling
+# zmodload zsh/zprof
 
 ZSH_THEME="ubuntu"
 
@@ -25,7 +27,7 @@ source $ZFILES/vcs.zsh
 source $ZFILES/macos.zsh
 
 # Developer tools
-source $ZFILES/alias.zsh
+source $ZFILES/aliases.zsh
 source $ZFILES/func.zsh
 source $ZFILES/docker.zsh
 source $ZFILES/fzf.zsh
@@ -38,3 +40,5 @@ source $ZFILES/rust.zsh
 source $ZFILES/python.zsh
 
 source $PRIV
+
+# zprof
