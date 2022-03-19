@@ -15,7 +15,7 @@ export EDITOR=nvim
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export PRIV=$HOME/.zshrcpriv
+export PRIV=$HOME/.priv/zsh.priv.env
 export MYVIMRC=$HOME/.vimrc
 
 export DOTFILES=$HOME/.dotfiles

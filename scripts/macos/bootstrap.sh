@@ -99,6 +99,9 @@ install_zsh() {
 
 	 # Add syntax highlighting plugin
 	 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+	 mkdir -p $HOME/.priv
+	 touch $HOME/.priv/zsh.priv.env
 }
 
 install_golang() {
@@ -212,6 +215,9 @@ FULL LIST https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_config
 * Create new GPG key
 * Add SSH key and GPG key to GitHub
 * Add SSH key and GPG key to GitLab
+
+## Private
+Create your private variables via ~/.priv
 EOM
 
 echo "🚀 Nearly there. Finish setting up by completing tasks in: ~/todo-finish-setup.md"
