@@ -19,15 +19,22 @@ export MYVIMRC=$HOME/.vimrc
 export DOTFILES=$HOME/.dotfiles
 export ZFILES=$HOME/.dotfiles/zsh
 
+# General terminal
 source $ZSH/oh-my-zsh.sh
-source $ZFILES/alias.zsh
-source $ZFILES/language.zsh
-source $ZFILES/func.zsh
 source $ZFILES/vcs.zsh
+source $ZFILES/macos.zsh
+
+# Developer tools
+source $ZFILES/alias.zsh
+source $ZFILES/func.zsh
 source $ZFILES/docker.zsh
 source $ZFILES/fzf.zsh
-source $ZFILES/python.zsh
+
+# Languages 
+source $ZFILES/node.zsh
+source $ZFILES/ruby.zsh
+source $ZFILES/go.zsh
 source $ZFILES/rust.zsh
-source $ZFILES/macos.zsh
+source $ZFILES/python.zsh
 
 source $PRIV
