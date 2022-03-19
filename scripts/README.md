@@ -6,6 +6,7 @@ How to bootstrap a new 127.0.0.1.
 	 * `act` - GitHub Actions
 * `git`
 	 * `diff-so-fancy` - Better git diff
+* `borg`
 
 ## Programming Languages
 ### Python
