@@ -35,15 +35,18 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- Map buffer local keybindings when the language server attaches
+-- FULL LIST https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 --
--- See https://github.com/castwide/solargraph
--- See https://github.com/microsoft/pyright
--- See https://rust-analyzer.github.io/manual.html#installation
--- See https://github.com/golang/tools/tree/master/gopls
--- See https://github.com/bash-lsp/bash-language-server
--- See https://github.com/elbywan/crystalline
--- See Docker
--- See Vim
+-- See Ruby https://github.com/castwide/solargraph
+-- See Python https://github.com/microsoft/pyright
+-- See Rust https://rust-analyzer.github.io/manual.html#installation
+-- See Go https://github.com/golang/tools/tree/master/gopls
+-- See Bash https://github.com/bash-lsp/bash-language-server
+-- See Crystal https://github.com/elbywan/crystalline
+-- See Docker https://github.com/rcjsuen/dockerfile-language-server-nodejs
+-- See Vim https://github.com/iamcco/vim-language-server
+-- See C# https://github.com/omnisharp/omnisharp-roslyn
+-- See Terraform https://github.com/hashicorp/terraform-ls
 local servers = {
 	 ruby = {'solargraph'},
 	 python = {'pyright'}, 
