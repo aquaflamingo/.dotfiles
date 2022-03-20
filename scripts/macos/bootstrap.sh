@@ -50,10 +50,11 @@ install_ruby() {
 	 echo "\tInstalling Rbenv and Ruby 3..."
 	 brew install rbenv ruby-build
 	 rbenv init
-	 eval "$(rbenv init - zsh)"
+	 eval "$(rbenv init -)"
 
 	 # Install Ruby 3
 	 rbenv install 3.0.0
+	 rbenv global 3.0.0
 	 rbenv rehash
 }
 
@@ -124,12 +125,16 @@ else
 fi
 
 # Install Homebrew
-echo "Installing homebrew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! command brew 2>&1 /dev/null; then
+	 echo "Installing homebrew"
+	 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
 # Install git
-echo "Installing git via brew"
-brew install git
+if ! command brew 2>&1 /dev/null; then
+	 echo "Installing git via brew"
+	 brew install git
+fi
 
 # Install git extensions
 # Update git configurations to use diff-so-fancy
@@ -139,8 +144,10 @@ brew install diff-so-fancy
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 git config --global interactive.diffFilter "diff-so-fancy --patch"
 
-echo "Installing GitHub cli"
-brew install gh
+if ! command gh 2>&1 /dev/null; then
+	 echo "Installing GitHub cli"
+	 brew install gh
+fi
 
 if read -q "choice?Setup neovim IDE? (Y/n): "; then
 	 install_nvim_ide
