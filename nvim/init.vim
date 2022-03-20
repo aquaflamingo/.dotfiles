@@ -6,8 +6,6 @@ source ~/.config/nvim/vim-plug/plugins.vim
 " Plugin Configuration
 source ~/.config/nvim/plug-config/fugitive.vim
 source ~/.config/nvim/plug-config/fzf.vim
-source ~/.config/nvim/plug-config/vim-crystal.vim
-source ~/.config/nvim/plug-config/vim-go.vim
 source ~/.config/nvim/plug-config/ctrlsf.vim
 "
 " Language Server Protocol 

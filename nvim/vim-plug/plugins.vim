@@ -8,20 +8,12 @@ Plug 'tpope/vim-commentary'
 " APPEARANCE
 Plug 'itchyny/lightline.vim'
 Plug 'akinsho/bufferline.nvim'
-" Plug 'ap/vim-buftabline'
 Plug 'airblade/vim-gitgutter'
-" Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'joshdick/onedark.vim'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
 " LANGUAGE SERVER PROTOCOLS
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-
-" TODO - remove complete
-" LANGUAGES
-Plug 'fatih/vim-go'
-" Plug 'sheerun/vim-polyglot'
-Plug 'vim-crystal/vim-crystal'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
