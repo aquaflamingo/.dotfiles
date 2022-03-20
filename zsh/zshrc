@@ -2,7 +2,7 @@ setopt autocd
 # Profiling
 # zmodload zsh/zprof
 
-ZSH_THEME="ubuntu"
+ZSH_THEME="minimal"
 
 plugins=(
 	# https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
@@ -23,7 +23,7 @@ export ZFILES=$HOME/.dotfiles/zsh
 
 # General terminal
 source $ZSH/oh-my-zsh.sh
-source $ZFILES/vcs.zsh
+source $ZFILES/git.zsh
 source $ZFILES/macos.zsh
 
 # Developer tools
