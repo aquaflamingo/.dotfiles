@@ -12,7 +12,7 @@ endif
 
 set termguicolors 
 " Set current colour scheme
-colorscheme desert 
+colorscheme challenger_deep
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffers and Editor Settings

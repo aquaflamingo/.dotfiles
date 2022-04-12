@@ -47,6 +47,8 @@ end
 -- See Vim https://github.com/iamcco/vim-language-server
 -- See C# https://github.com/omnisharp/omnisharp-roslyn
 -- See Terraform https://github.com/hashicorp/terraform-ls
+-- See SourceKit https://github.com/apple/sourcekit-lsp
+--
 local servers = {
 	 ruby = {'solargraph'},
 	 python = {'pyright'}, 
@@ -55,7 +57,8 @@ local servers = {
 	 bash ={'bashls'},
 	 crystal ={'crystalline'},
 	 docker ={'dockerls'},
-	 vim ={'vimls'}
+	 vim ={'vimls'},
+	 swift ={'sourcekit'},
 }
 
 for k, lsp in pairs(servers) do
