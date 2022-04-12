@@ -5,3 +5,7 @@ function load_nvm() {
 	[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 }
 
+function load_n() {
+	 export N_PREFIX=$HOME/.n
+	 export PATH=$N_PREFIX/bin:$PATH
+}

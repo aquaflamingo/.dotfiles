@@ -2,7 +2,7 @@ setopt autocd
 # Profiling
 # zmodload zsh/zprof
 
-ZSH_THEME="minimal"
+ZSH_THEME="view2"
 
 plugins=(
 	# https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
