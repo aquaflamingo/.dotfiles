@@ -1,11 +1,11 @@
 local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
--- Shorten function name local keymap = vim.api.nvim_set_keymap
+-- Shorten function name 
+local keymap = vim.api.nvim_set_keymap
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = "\\"
 
 -- Modes
 --   normal_mode = "n",
@@ -28,8 +28,8 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Quick vim
--- keymap("n", "<leader>ev", ":split $HOME/.config/nvim<CR>", opts)
--- keymap("n", "<leader>sv", ":source $HOME/.config/nvim<CR>", opts)
+keymap("n", "<leader>ev", ":split $HOME/.config/nvim<CR>", opts)
+keymap("n", "<leader>sv", ":source $HOME/.config/nvim<CR>", opts)
 
 -- Move text up and down with alt key
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
