@@ -36,15 +36,15 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Switch background to light or darkmode
-keymap("n", "<leader>*", ":let &background = ( &background == 'dark'? 'light' : 'dark' )<CR>", opts)
+keymap("n", "<leader>b", ":let &background = ( &background == 'dark'? 'light' : 'dark' )<CR>", opts)
 
 -- Delete buffer
 keymap("n", "<leader>d", ":bd!<CR>", opts)
 
 -- Tabs
-keymap("n", "<leader>1", "1gt", opts)
-keymap("n", "<leader>2", "2gt", opts)
-keymap("n", "<leader>3", "3gt", opts)
+keymap("n", "<leader>t1", "1gt", opts)
+keymap("n", "<leader>t2", "2gt", opts)
+keymap("n", "<leader>t3", "3gt", opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
@@ -52,9 +52,7 @@ keymap("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<C-y>", "<cmd>Telescope buffers<CR>", opts)
 
 -- Fugitive
-
--- TODO: migrate rest of keymaps
---
+keymap("n", "<leader>gs", "<cmd>Git<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
