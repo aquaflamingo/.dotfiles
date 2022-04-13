@@ -6,7 +6,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", "\\", "<Nop>", opts)
+keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -25,6 +25,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+keymap("n", "<leader>e", "<cmd>Lex 30<CR>", opts)
+
 -- Navigate buffers
 -- Shift+l or +h 
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -38,12 +40,19 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<leader>*", ":let &background = ( &background == 'dark'? 'light' : 'dark' )<CR>", opts)
 
 -- Delete buffer
-keymap("n", "<leader>d", ":bd!", opts)
+keymap("n", "<leader>d", ":bd!<CR>", opts)
 
 -- Tabs
 keymap("n", "<leader>1", "1gt", opts)
 keymap("n", "<leader>2", "2gt", opts)
 keymap("n", "<leader>3", "3gt", opts)
+
+-- Telescope
+keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<C-y>", "<cmd>Telescope buffers<CR>", opts)
+
+-- Fugitive
 
 -- TODO: migrate rest of keymaps
 --
@@ -74,7 +83,4 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
--- Telescope
-keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<C-y>", "<cmd>Telescope buffers<CR>", opts)
+
