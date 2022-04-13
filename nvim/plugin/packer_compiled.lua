@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/Users/robert/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
   },
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/Users/robert/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/robert/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
