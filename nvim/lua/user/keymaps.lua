@@ -42,17 +42,23 @@ keymap("n", "<leader>b", ":let &background = ( &background == 'dark'? 'light' : 
 keymap("n", "<leader>d", ":bd!<CR>", opts)
 
 -- Tabs
-keymap("n", "<leader>t1", "1gt", opts)
-keymap("n", "<leader>t2", "2gt", opts)
-keymap("n", "<leader>t3", "3gt", opts)
+keymap("n", "<leader>1", "1gt", opts)
+keymap("n", "<leader>2", "2gt", opts)
+keymap("n", "<leader>3", "3gt", opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<C-y>", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<leader>t", ":Telescope ", opts)
+
+--- Tree
+keymap("n", "<leader>f", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Fugitive
 keymap("n", "<leader>gs", "<cmd>Git<CR>", opts)
+keymap("n", "<leader>cf", "<cmd><C-U>Git commit --fixup=<C-R>=<SID>SquashArgument()<CR>", opts)
+keymap("n", "<leader>cc", "<cmd><C-U>Git commit<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode

@@ -20,23 +20,23 @@ local check_backspace = function()
 end
 
 local kind_icons = {
-  Text = "ɑ",
-  Method = "m",
+  Text = "text",
+  Method = "method",
   Function = "fn",
   Variable = "var",
-  Class = "cl",
-  Interface = "in",
-  Module = "mod",
-  Property = "prop",
-  Value = "v",
-  Enum = "en",
-  Keyword = "key",
-  Snippet = "S",
-  File = "F",
-  Reference = "R",
-  Folder = "D",
-  Constant = "c",
-  Struct = "s",
+  Class = "class",
+  Interface = "interface",
+  Module = "module",
+  Property = "proerty",
+  Value = "value",
+  Enum = "enum",
+  Keyword = "keyword",
+  Snippet = "snippet",
+  File = "file",
+  Reference = "ref",
+  Folder = "dir",
+  Constant = "const",
+  Struct = "struct",
 }
 
 cmp.setup {
@@ -51,8 +51,8 @@ cmp.setup {
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     --
-    -- Use Control+Space to pull up completion menu
-    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    -- Use Control+c to pull up completion menu
+    ["<C-c>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 
     ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 
@@ -119,9 +119,9 @@ cmp.setup {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
+  -- documentation = {
+    -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  -- },
   experimental = {
     ghost_text = false,
     native_menu = false,

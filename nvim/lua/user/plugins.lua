@@ -46,15 +46,11 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   use "tpope/vim-fugitive" 
-  use "tpope/vim-commentary" 
 
   use 'airblade/vim-gitgutter'
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
   use "nvim-lualine/lualine.nvim"
-  -- use "lewis6991/impatient.nvim"
-  -- use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
