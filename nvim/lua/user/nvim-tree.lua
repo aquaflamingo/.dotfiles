@@ -4,14 +4,14 @@ vim.g.nvim_tree_icons = {
   default = "",
   symlink = "",
   git = {
-    unstaged = "✗",
+    unstaged = "x",
     staged = "✓",
   },
   folder = {
     default = ">",
-    arrow_open = "",
+    arrow_open = ">",
     arrow_closed = "",
-    symlink_open = ">",
+    symlink_open = "",
     open = "",
     empty = "",
     empty_open = "",

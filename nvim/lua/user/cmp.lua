@@ -46,14 +46,15 @@ cmp.setup {
     end,
   },
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+    -- ["<C-k>"] = cmp.mapping.select_prev_item(),
+		-- ["<C-j>"] = cmp.mapping.select_next_item(),
+  
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     --
-    -- Use Control+c to pull up completion menu
-    ["<C-c>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-
+    -- Use Leader+c to pull up completion menu
+    ["<leader>c"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    
     ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 
     -- Use Control+e to exit
@@ -119,9 +120,6 @@ cmp.setup {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  -- documentation = {
-    -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  -- },
   experimental = {
     ghost_text = false,
     native_menu = false,

@@ -29,7 +29,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Quick vim
 keymap("n", "<leader>ev", ":split $HOME/.config/nvim<CR>", opts)
-keymap("n", "<leader>sv", ":source $HOME/.config/nvim<CR>", opts)
+keymap("n", "<leader>sv", ":source $HOME/.config/nvim/init.lua<CR>", opts)
 
 -- Move text up and down with alt key
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
