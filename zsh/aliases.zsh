@@ -9,6 +9,7 @@ alias vim='nvim'
 
 # Warn before overwriting
 alias rm='rm -i'
+alias mv='mv -i'
 
 # Docker
 alias dockeripd="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
