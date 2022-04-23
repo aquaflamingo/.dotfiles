@@ -10,7 +10,7 @@ bufferline.setup {
     -- and so changing this is NOT recommended, this is intended
     -- as an escape hatch for people who cannot bear it for whatever reason
     indicator_icon = "▎",
-    -- buffer_close_icon = '',
+    buffer_close_icon = 'x',
     modified_icon = "●",
     max_name_length = 30,
     max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
