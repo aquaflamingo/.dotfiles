@@ -24,5 +24,12 @@ ln -s ~/.config/nvim/init.vim ~/.vimrc
 ln -s ~/.config/nvim ~/.vim
 ```
 
+## Plugins
+### Nvim-Tree
+* Install a Nerd Font compatible. 
+  * e.g. Ubuntu Mono Complete - 
+  * e.g. Fira Code Complete - https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode/Retina/complete 
+* Then set terminal font (or guifont if you are using GUI version of Vim).
+
 # Licence
 This repository is licenced under MIT
