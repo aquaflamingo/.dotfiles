@@ -1,21 +1,23 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
+  default = "",
+  symlink = "",
   git = {
-    unstaged = "x",
-    staged = "✓",
+    unstaged = "",
+    staged = "S",
+    unmerged = "",
+    renamed = "➜",
+    deleted = "",
+    untracked = "U",
+    ignored = "◌",
   },
   folder = {
-    default = ">",
-    arrow_open = ">",
-    arrow_closed = "",
-    symlink_open = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
   },
 }
 
@@ -40,6 +42,7 @@ nvim_tree.setup {
     "dashboard",
     "alpha",
   },
+  auto_close = true,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
@@ -50,10 +53,10 @@ nvim_tree.setup {
   diagnostics = {
     enable = true,
     icons = {
-      hint = "?",
-      info = "i",
-      warning = "!",
-      error = "X",
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
     },
   },
   update_focused_file = {
@@ -74,7 +77,8 @@ nvim_tree.setup {
     ignore = true,
     timeout = 500,
   },
-  view = { width = 30,
+  view = {
+    width = 30,
     height = 30,
     hide_root_folder = false,
     side = "left",
@@ -99,10 +103,10 @@ nvim_tree.setup {
   disable_window_picker = 0,
   root_folder_modifier = ":t",
   show_icons = {
-    git = 0,
-    folders = 0,
-    files = 0,
-    folder_arrows = 0,
+    git = 1,
+    folders = 1,
+    files = 1,
+    folder_arrows = 1,
     tree_width = 30,
   },
 }
