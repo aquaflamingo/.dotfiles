@@ -17,12 +17,12 @@ end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 -- Use PackerSync if you want to PackerUpdate and PackerCompile
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerUpdate
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerUpdate
+--   augroup end
+-- ]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -47,9 +47,12 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   use "tpope/vim-fugitive" 
-
   use 'airblade/vim-gitgutter'
+  use "numToStr/Comment.nvim" -- Comments
+
   use "kyazdani42/nvim-tree.lua"
+  use "kyazdani42/nvim-web-devicons"
+
   use "akinsho/bufferline.nvim"
   use "nvim-lualine/lualine.nvim"
 
