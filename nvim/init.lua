@@ -1,3 +1,4 @@
+require 'user._version'
 require 'user.options'
 require 'user.keymaps'
 require 'user.plugins'
