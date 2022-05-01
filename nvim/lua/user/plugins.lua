@@ -47,6 +47,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   use "tpope/vim-fugitive" 
+  -- use "tpope/vim-eunuch" 
   use 'airblade/vim-gitgutter'
   use "numToStr/Comment.nvim" -- Comments
 
