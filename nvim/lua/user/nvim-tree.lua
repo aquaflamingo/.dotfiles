@@ -34,6 +34,14 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
+  actions = {
+    change_dir = {
+        -- Do not change current working directory if you use the nvim-tree
+        enable = false,
+        global = false,
+        restrict_above_cwd = false,
+    },
+  },
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,

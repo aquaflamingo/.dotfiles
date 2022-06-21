@@ -2,6 +2,7 @@
 alias \@go=$GOPATH
 alias \@dotfiles='~/.dotfiles'
 alias \@src='~/src/'
+alias \@kb='~/KB/'
 
 # vim
 alias vimold='vim'
