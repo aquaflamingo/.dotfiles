@@ -73,9 +73,6 @@ install_nvim_ide() {
 	 # To install useful key bindings and fuzzy completion:
 	 $(brew --prefix)/opt/fzf/install
 
-	 # Install ripgrep
-	 brew install ripgrep
-
 	 # Link config to dotfile config
 	 ln -s $DOTFILES_PATH/nvim ~/.config/nvim
 	 ln -s ~/.config/nvim/init.vim ~/.vimrc
@@ -111,6 +108,15 @@ install_golang() {
 	 mkdir -p $GOPATH/{bin,src,pkg}
 }
 
+install_extended_deps() {
+  # Lynx is a text based web browser
+  # https://en.wikipedia.org/wiki/Lynx_%28web_browser%29
+  brew install lynx
+
+  # Pandoc is universal document converter
+  brew install pandoc
+}
+
 # ========================================================================
 # Script Start
 
@@ -120,6 +126,12 @@ xcode-select --install
 
 if read -q "choice?Setup ZSH with oh-my-zsh? (Y/n): "; then
 	 install_zsh
+
+   if read -q "choice?Setup extended terminal functionality (Y/n): "; then
+     install_extended_deps
+   else 
+     echo "\tContinue"
+   fi
 else 
 	 echo "\tContinue"
 fi
@@ -200,21 +212,6 @@ These are the remaining items you will need to install manually if desired.
 * Install Node.js
 * Install via https://github.com/nvm-sh/nvm
 * Install yarn, node
-
-## Language servers
-These language serers are currently configured for neomvim. You will either need to install them or change the LSP configuration.
-FULL LIST https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-
-* See Ruby https://github.com/castwide/solargraph
-* See Python https://github.com/microsoft/pyright
-* See Rust https://rust-analyzer.github.io/manual.html#installation
-* See Go https://github.com/golang/tools/tree/master/gopls
-* See Bash https://github.com/bash-lsp/bash-language-server
-* See Crystal https://github.com/elbywan/crystalline
-* See Docker https://github.com/rcjsuen/dockerfile-language-server-nodejs
-* See Vim https://github.com/iamcco/vim-language-server
-* See C# https://github.com/omnisharp/omnisharp-roslyn
-* See Terraform https://github.com/hashicorp/terraform-ls
 
 ## Git
 * Configure Git config
