@@ -73,6 +73,10 @@ install_nvim_ide() {
 	 # To install useful key bindings and fuzzy completion:
 	 $(brew --prefix)/opt/fzf/install
 
+   # Install ripgrep
+   # @required for Telescope.nvim
+   brew install ripgrep
+
 	 # Link config to dotfile config
 	 ln -s $DOTFILES_PATH/nvim ~/.config/nvim
 	 ln -s ~/.config/nvim/init.vim ~/.vimrc
