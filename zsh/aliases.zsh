@@ -5,8 +5,7 @@ alias \@src='~/src/'
 alias \@kb='~/KB/'
 
 # vim
-alias vimold='vim'
-alias vim='nvim'
+alias nv="nvim"
 
 # Warn before overwriting
 alias rm='rm -i'
@@ -20,12 +19,12 @@ alias python=python3
 alias pip=pip3
 
 # configs
-alias ,ez="vim ~/.zsh"
-alias ,ed="vim $DOTFILES"
-alias ,eg="vim ~/.gitconfig"
-alias ,eza="vim ~/.zsh/alias.zsh"
-alias ,ev="vim ~/.vimrc"
-alias ,et="vim ~/.tmux.conf"
+alias ,ez="nvim ~/.zsh"
+alias ,ed="nvim $DOTFILES"
+alias ,eg="nvim ~/.gitconfig"
+alias ,eza="nvim ~/.zsh/alias.zsh"
+alias ,ev="nvim ~/.vimrc"
+alias ,et="nvim ~/.tmux.conf"
 
 # Terminal
 alias cl="clear"
