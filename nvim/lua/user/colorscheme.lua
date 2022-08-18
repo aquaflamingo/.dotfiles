@@ -1,6 +1,6 @@
 -- Try to set the colorscheme and if not found just set default
 
-local cs = "darkplus"
+local cs = "onedarker"
 
 local is_ok, _ = pcall(vim.cmd, "colorscheme " .. cs)
 
