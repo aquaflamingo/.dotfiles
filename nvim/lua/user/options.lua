@@ -39,6 +39,7 @@ local options = {
   list = true,                             -- display invisible chars
   listchars = "tab:⇥·,trail:·",            -- Set tab and space characters
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  autoread = true,                         -- Have neovim reload the file
 }
 
 vim.opt.shortmess:append "c"
