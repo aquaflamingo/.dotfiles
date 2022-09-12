@@ -1,8 +1,5 @@
 -- Check that cmp is okay
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-  return
-end
+local cmp_status_ok, cmp = pcall(require, "cmp") if not cmp_status_ok then return end
 
 -- Check that snippets engine is okay
 local snip_status_ok, luasnip = pcall(require, "luasnip")
