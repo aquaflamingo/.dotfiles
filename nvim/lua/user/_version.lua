@@ -1,4 +1,4 @@
-local config_version = "2.2.0"
+local config_version = "2.3.0"
 
 -- Creating a custom user command in 0.7
 vim.api.nvim_create_user_command("ConfigVersion", function(args)
