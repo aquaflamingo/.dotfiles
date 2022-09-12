@@ -26,3 +26,14 @@ function openmd() {
 
   pandoc $1 | lynx -stdin
 }
+
+function mov2gif() {
+  if [ $# -lt 2 ]
+  then
+    echo "Usage: $funcstack[1] <file.mov> <out.gif>"
+    return
+  fi
+
+  ffmpeg -i $1 -pix_fmt rgb8 $2
+}
+
