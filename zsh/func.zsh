@@ -37,3 +37,12 @@ function mov2gif() {
   ffmpeg -i $1 -pix_fmt rgb8 $2
 }
 
+# Convert all wav files in directory to MP3
+function batch__wav2mp3() {
+  for i in *.wav; do ffmpeg -i "$i" -ab 320k "${i%.*}.mp3"; done
+}
+
+# Convert all aif files in directory to MP3
+function batch__aif2mp3() {
+  for i in *.aif; do ffmpeg -i "$i" -ab 320k "${i%.*}.mp3"; done
+}
