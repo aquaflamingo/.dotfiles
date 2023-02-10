@@ -45,6 +45,9 @@ keymap("n", "<leader>d", ":bd!<CR>", opts)
 keymap("n", "<leader>1", "1gt", opts)
 keymap("n", "<leader>2", "2gt", opts)
 keymap("n", "<leader>3", "3gt", opts)
+keymap("n", "<leader>4", "4gt", opts)
+keymap("n", "<leader>5", "5gt", opts)
+keymap("n", "<leader>6", "6gt", opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>Telescope find_files<CR>", opts)

@@ -59,6 +59,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  use {"EdenEast/nightfox.nvim", tag = "v1.0.0" }
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
