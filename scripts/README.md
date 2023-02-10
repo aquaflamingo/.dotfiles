@@ -27,7 +27,7 @@ How to bootstrap a new 127.0.0.1.
 * `crystal`
 
 ### JavaScript
-* `nvm` (Node version management)
+* `n` (Node version management)
 * `node` (For all the javascripts)
 * `yarn` (Cats)
 
@@ -41,3 +41,6 @@ How to bootstrap a new 127.0.0.1.
 * `tmux` (Terminal multiplexor)
 * `tmuxinator` (setup projects)
 * `fzf` (better fuzzy search)
+
+## Other Stuff
+- `cmake` for make utility
