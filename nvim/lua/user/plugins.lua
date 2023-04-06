@@ -58,7 +58,6 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim"
 
   -- Colorschemes
-  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use {"EdenEast/nightfox.nvim", tag = "v1.0.0" }
 
   -- cmp plugins
@@ -69,22 +68,39 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- extra source for nvim lsp
 
+	-- ChatGPT
+	use({
+		"jackMort/ChatGPT.nvim",
+			config = function()
+				require("chatgpt").setup()
+			end,
+			requires = {
+				"MunifTanjim/nui.nvim",
+				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope.nvim"
+			}
+	})
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use {
+    "williamboman/mason.nvim",
+		run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+	}
+	use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
+	use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
 
-  -- Telescope
+	-- Telescope
   use "nvim-telescope/telescope.nvim"
 
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     -- Uncomment to auto update
-    -- run = ":TSUpdate",
+     run = ":TSUpdate",
   }
 
   use "alexghergh/nvim-tmux-navigation"
