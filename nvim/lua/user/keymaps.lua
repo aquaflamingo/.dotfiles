@@ -56,7 +56,7 @@ keymap("n", "<C-y>", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>t", ":Telescope ", opts)
 
 --- Tree
-keymap("n", "<leader>f", "<cmd>NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>f", "<cmd>NvimTreeOpen<CR>", opts)
 
 -- Fugitive
 keymap("n", "<leader>gs", "<cmd>Git<CR>", opts)

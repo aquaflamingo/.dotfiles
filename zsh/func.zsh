@@ -46,3 +46,48 @@ function batch__wav2mp3() {
 function batch__aif2mp3() {
   for i in *.aif; do ffmpeg -i "$i" -ab 320k "${i%.*}.mp3"; done
 }
+
+function photoinfo() {
+	exiftool -ApertureValue -ShutterSpeedValue -ISO -FocalLength -FileName -Model -ExposureTime "$1"
+}
+
+function photoname() {
+
+	# Run exiftool and capture output
+	output=$(exiftool -ApertureValue -ShutterSpeedValue -ISO -FocalLength -ExposureTime "$1")
+
+	# Initialize variables
+	aperture=""
+	shutterspeed=""
+	iso=""
+	focallength=""
+	exposuretime=""
+
+	# Extract values using a while loop to handle each line
+	echo "$output" | while IFS=': ' read -r key value; do
+		case "$key" in
+			"Aperture Value")
+				aperture=$value
+				;;
+			"Shutter Speed Value")
+				shutterspeed=$value
+				;;
+			"ISO")
+				iso=$value
+				;;
+			"Focal Length")
+				focallength=$(echo $value | awk '{print $1}')  # Remove 'mm' if present
+				;;
+			"Exposure Time")
+				exposuretime=$value
+				;;
+		esac
+	done
+
+	# Construct the formatted string
+	formatted_string="aperture-${aperture}__shutterspeed-${shutterspeed}__ISO-${iso}__focallength-${focallength}__exposuretime-${exposuretime}"
+
+	# Output the formatted string
+	echo $formatted_string
+}
+

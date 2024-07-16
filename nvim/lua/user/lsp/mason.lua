@@ -1,14 +1,15 @@
 -- https://github.com/LunarVim/Neovim-from-scratch/blob/master/lua/user/lsp/mason.lua
 local servers = {
-	"sumneko_lua",
+	"lua_ls",
 	"pyright",
 	"solargraph",
 	"html",
 	"dockerls",
 	"gopls",
 	"marksman",
-	-- "cssls",
-	-- "tsserver",
+	-- For C/C++/Swift/ObjC
+	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sourcekit
+	"sourcekit",
 }
 
 local settings = {

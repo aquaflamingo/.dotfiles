@@ -1,11 +1,14 @@
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
+	print("Nvim Tree status was bad") 
   return
 end
 
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
+	print("Nvim Tree config status was bad: ")
+	print(config_status_ok) 
   return
 end
 

@@ -19,4 +19,11 @@ configs.setup {
     enable = true,
     enable_autocmd = false,
   },
+	ensure_installed = {
+				"vimdoc",
+				"luadoc",
+				"vim",
+				"lua",
+				"markdown"
+			}
 }
