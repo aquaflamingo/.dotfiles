@@ -7,6 +7,8 @@ local servers = {
 	"dockerls",
 	"gopls",
 	"marksman",
+	"kotlin-language-server",
+	"java",
 	-- For C/C++/Swift/ObjC
 	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sourcekit
 	"sourcekit",

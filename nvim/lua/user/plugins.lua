@@ -69,18 +69,6 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- extra source for nvim lsp
 
-	-- ChatGPT
-	use({
-		"jackMort/ChatGPT.nvim",
-			config = function()
-				require("chatgpt").setup()
-			end,
-			requires = {
-				"MunifTanjim/nui.nvim",
-				"nvim-lua/plenary.nvim",
-				"nvim-telescope/telescope.nvim"
-			}
-	})
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use

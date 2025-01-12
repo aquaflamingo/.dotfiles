@@ -51,3 +51,4 @@ alias grom="git rebase origin/main"
 alias grum="git rebase upstream/main"
 alias grename="git branch -m"
 
+alias be="bundle exec"
