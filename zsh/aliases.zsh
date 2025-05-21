@@ -35,20 +35,11 @@ alias reload="source ~/.zshrc"
 alias ga="git add -A"
 alias gc="git commit"
 alias gcm="git commit -m"
+alias gcnv="git commit --no-verify"
 alias gco="git checkout"
 alias gp="git push"
-# Print branches
 alias gbr="git branch | cat"
-# Git fixup commit
 alias gf="git commit --fixup"
-# Git fetch and reset
-alias gfrom="git fetch origin/main && git reset --hard origin/main"
-# Git fetch and reset upstream
-alias gfrum="git fetch upstream/main && git reset --hard upstream/main"
-# Rebase origin main
-alias grom="git rebase origin/main"
-# Rebase upstream main
-alias grum="git rebase upstream/main"
 alias grename="git branch -m"
 
 alias be="bundle exec"

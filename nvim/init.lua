@@ -8,8 +8,11 @@ require 'user.lsp'
 require 'user.telescope'
 require 'user.lualine'
 require 'user.treesitter'
-require 'user.bufferline'
 require 'user.functions'
 require 'user.nvim-tree'
 require 'user.comment'
+require 'user.copilot'
 require 'user.nvim-tmux-navigation'
+
+
+require 'user.bufferline'

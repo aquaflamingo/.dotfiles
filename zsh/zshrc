@@ -47,3 +47,14 @@ source $PRIV
 load_n
 
 export PATH="$PATH:/Users/robert/.helios/bin"
+
+# bun completions
+[ -s "/Users/robert/.bun/_bun" ] && source "/Users/robert/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

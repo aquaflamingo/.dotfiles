@@ -58,12 +58,6 @@ bufferline.setup {
       bg = { attribute = "bg", highlight = "TabLineSel" },
       italic = true,
     },
-    -- FIXME: "not formatted properly
-    -- duplicate_visible = {
-    --   fg = { "fg", highlight = "TabLine" },
-    --   bg = { attribute = "bg", highlight = "TabLine" },
-    --   italic = true,
-    -- },
     duplicate = {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },

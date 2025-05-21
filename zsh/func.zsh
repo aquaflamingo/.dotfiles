@@ -344,3 +344,37 @@ function convert_html_directory() {
         _html_to_text "$file"
     done
 }
+
+# Function to convert M4A files to MP3 with 320kbps bitrate
+m4a2mp3() {
+  # Check if ffmpeg is installed
+  if ! command -v ffmpeg &> /dev/null; then
+    echo "Error: ffmpeg is not installed. Please install it first."
+    return 1
+  fi
+  
+  local dir="${1:-.}"  # Use provided directory or current directory
+  
+  # Check if directory exists
+  if [[ ! -d "$dir" ]]; then
+    echo "Error: Directory '$dir' not found."
+    return 1
+  fi
+  
+  # Find and convert all m4a files
+  local count=0
+  for file in "$dir"/*.m4a(N); do
+    if [[ -f "$file" ]]; then
+      local output="${file:r}.mp3"
+      echo "Converting: $file to $output"
+      ffmpeg -i "$file" -codec:a libmp3lame -b:a 320k "$output"
+      ((count++))
+    fi
+  done
+  
+  if ((count == 0)); then
+    echo "No M4A files found in $dir."
+  else
+    echo "Converted $count files to MP3 format."
+  fi
+}

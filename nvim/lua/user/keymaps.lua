@@ -92,3 +92,4 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Quick fix --
 keymap("n", "]q", ":cnext<CR>", opts)
 keymap("n", "[q", ":cprevious<CR>", opts)
+

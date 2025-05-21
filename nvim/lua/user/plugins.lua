@@ -85,6 +85,8 @@ return packer.startup(function(use)
 	-- Telescope
   use "nvim-telescope/telescope.nvim"
 
+	use { "zbirenbaum/copilot.lua" }
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
