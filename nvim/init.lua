@@ -11,8 +11,11 @@ require 'user.treesitter'
 require 'user.functions'
 require 'user.nvim-tree'
 require 'user.comment'
-require 'user.copilot'
 require 'user.nvim-tmux-navigation'
+require 'user.copilot'
 
 
 require 'user.bufferline'
+
+-- Disaledduetoerrors--
+

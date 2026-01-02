@@ -1,6 +1,5 @@
 local status_ok, pilot = pcall(require, "copilot")
 if not status_ok then
-	print("CO PILOT FAILED TO INIT")
   return
 end
 
@@ -17,5 +16,8 @@ pilot.setup {
       prev = "<leader>]",
       dismiss = "<C-]>",
     },
+	},
+	filetypes = {
+		["*"] = true
 	}
 }

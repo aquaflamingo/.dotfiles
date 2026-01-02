@@ -1,5 +1,23 @@
 
 # Interactive fixup
+# practicetracks02--1000x1000
+
+function rootvenv() {
+	local venv_path="/Users/robert/venv"
+
+	if [[ -d "$venv_path" ]]; then
+		source "$venv_path/bin/activate"
+		echo "Activated virtual environment at $venv_path"
+	else
+		echo "No venv directory found at the root of the git repository."
+	fi
+}
+
+function gogemini() {
+	# -s is sandbox
+	npx @google/gemini-cli -s
+}
+
 function cfu() {
 	 target=$(git log --pretty=oneline | fzf --preview "echo {} | cut -f 1 -d' ' | xargs -I SHA git show --color=always --pretty=fuller --stat SHA" | awk '{ print $1 }')
 

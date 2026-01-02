@@ -94,6 +94,8 @@ return packer.startup(function(use)
      run = ":TSUpdate",
   }
 
+	use { "olimorris/codecompanion.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter"} }
+
   use "alexghergh/nvim-tmux-navigation"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

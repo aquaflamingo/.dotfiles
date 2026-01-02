@@ -5,7 +5,7 @@ local scheme_nordfox = "nordfox"
 local scheme_duskfox = "duskfox"
 local scheme_nightfox = "nightfox"
 
-local cs = scheme_nightfox
+local cs = scheme_nordfox
 
 local is_ok, _ = pcall(vim.cmd, "colorscheme " .. cs)
 
