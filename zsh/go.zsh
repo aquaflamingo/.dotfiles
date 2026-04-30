@@ -1,4 +1,3 @@
 # GO
-export GOPATH="$HOME/go"
-export GOPATH="$HOME/src"
+export GOPATH="$HOME/src/go"
 export PATH="$GOPATH/bin:$PATH"

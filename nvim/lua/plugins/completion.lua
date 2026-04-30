@@ -12,7 +12,7 @@ return {
 	-- Use 'opts' instead of 'config' for better merging with blink's defaults
 	opts = {
 		-- 1. Configure snippet expansion
-		snippet = {
+		snippets = {
 			preset = "luasnip",
 		},
 

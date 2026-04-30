@@ -85,7 +85,7 @@ return {
 
 				icons_enabled = true,
 
-				theme = "tokyonight",
+				theme = "nightfox",
 
 				component_separators = { left = "", right = "" },
 

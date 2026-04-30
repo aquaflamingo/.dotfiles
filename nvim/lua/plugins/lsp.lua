@@ -14,12 +14,13 @@ return {
 	config = function()
 		-- 1. Native Diagnostic Icons (v0.11+ way)
 		-- In 2026, we don't use sign_define; we use vim.diagnostic.config signs.
-		        local signs = {
-		          { name = "DiagnosticSignError", text = "" },
-		          { name = "DiagnosticSignWarn", text = "" },
-		          { name = "DiagnosticSignHint", text = "" },
-		          { name = "DiagnosticSignInfo", text = "" },
-		        }		vim.diagnostic.config({
+		local signs = {
+			{ name = "DiagnosticSignError", text = "" },
+			{ name = "DiagnosticSignWarn", text = "" },
+			{ name = "DiagnosticSignHint", text = "" },
+			{ name = "DiagnosticSignInfo", text = "" },
+		}
+		vim.diagnostic.config({
 			virtual_text = false,
 			underline = true,
 			update_in_insert = true,
@@ -79,7 +80,7 @@ return {
 
 		-- 4. Server Setup (Using the new Native Bridge)
 		-- NOTE: tsserver is now ts_ls!
-		local servers = { "ts_ls", "lua_ls", "pyright", "html" }
+		local servers = { "ts_ls", "lua_ls", "pyright", "html", "ruby_lsp", "gopls" }
 
 		require("mason-lspconfig").setup({
 			ensure_installed = servers,

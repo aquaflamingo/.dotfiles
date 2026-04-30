@@ -396,3 +396,7 @@ m4a2mp3() {
     echo "Converted $count files to MP3 format."
   fi
 }
+
+function opencode-sandbox() {
+	sbx run opencode .
+}

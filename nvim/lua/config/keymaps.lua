@@ -34,18 +34,26 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<leader>b", ":let &background = ( &background == 'dark'? 'light' : 'dark' )<CR>", opts)
 
 -- Fuzzy Finder (fzf-lua)
-keymap("n", "<leader>1", "1gt", opts)
+
 keymap("n", "<C-p>", "<cmd>FzfLua files<CR>", opts)
 keymap("n", "<C-q>", "<cmd>FzfLua quickfix<CR>", opts)
 keymap("n", "<C-f>", "<cmd>FzfLua live_grep<CR>", opts)
 keymap("n", "<C-y>", "<cmd>FzfLua buffers<CR>", opts)
 keymap("n", "<leader>t", ":FzfLua ", opts)
 
+keymap("n", "<leader>1", "1gt", opts)
+keymap("n", "<leader>2", "2gt", opts)
+keymap("n", "<leader>3", "3gt", opts)
+keymap("n", "<leader>4", "4gt", opts)
+
 -- File Tree
 keymap("n", "<leader>f", "<cmd>NvimTreeOpen<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gs", "<cmd>Git<CR>", opts)
+
+-- LSP
+keymap("n", "gl", vim.diagnostic.open_float, { desc = "Line diagnostics" })
 
 -- Visual Mode
 ---------------------------------------------------
