@@ -1,4 +1,5 @@
 # dirs
+#
 alias \@go=$GOPATH
 alias \@dotfiles='~/.dotfiles'
 alias \@src='~/src/'

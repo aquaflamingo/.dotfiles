@@ -400,3 +400,115 @@ m4a2mp3() {
 function opencode-sandbox() {
 	sbx run opencode .
 }
+
+function bulletlist() {
+    # Default to current directory if no path is provided
+    local target="${1:-.}"
+
+    if [[ ! -d "$target" ]]; then
+        echo "Error: '$target' is not a valid directory."
+        return 1
+    fi
+
+    # Run in a subshell so we don't change your active terminal directory
+    (
+        cd "$target" || return
+        # **/*(.) recursively finds only files (ignoring empty folders and hidden files)
+        for file in **/*(.); do
+            echo "- $file"
+        done
+    )
+}
+
+pdf2txt() {
+    if [ -z "$1" ]; then
+        echo "Usage: pdf2txt filename.pdf"
+        return 1
+    fi
+    python3 -c "from pypdf import PdfReader; import sys; print('\n\n'.join([p.extract_text() for p in PdfReader(sys.argv[1]).pages if p.extract_text()]))" "$1" > "${1%.*}.txt"
+    echo "Converted $1 to ${1%.*}.txt"
+}
+
+# Syncs github issues to disk for opencode
+sync-issues() {
+  setopt LOCAL_OPTIONS NULL_GLOB
+
+  # Resolve target Git root directory
+  local git_root
+  git_root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+    echo "Error: Not inside a Git repository." >&2
+    return 1
+  }
+
+  local sync_dir="${git_root}/${1:-.context/issues}"
+  local issue_limit="${2:-50}"
+
+  # Check requirements
+  for cmd in gh jq; do
+    if ! command -v "$cmd" &>/dev/null; then
+      echo "Error: Required binary '$cmd' is not installed." >&2
+      return 1
+    fi
+  done
+
+  if ! gh auth status &>/dev/null; then
+    echo "Error: gh CLI is not authenticated. Run 'gh auth login'." >&2
+    return 1
+  fi
+
+  mkdir -p "$sync_dir"
+  rm -f "${sync_dir}"/issue-*.md 2>/dev/null
+
+  echo "Syncing open issues into '${sync_dir}'..."
+
+  gh issue list --state open --limit "$issue_limit" --json number,title,body,labels,url | jq -c '.[]' | while read -r issue; do
+    local num title url labels body
+
+    num=$(print -r -- "$issue" | jq -r '.number')
+    title=$(print -r -- "$issue" | jq -r '.title')
+    url=$(print -r -- "$issue" | jq -r '.url')
+    labels=$(print -r -- "$issue" | jq -r '[.labels[].name] | join(", ")')
+    body=$(print -r -- "$issue" | jq -r '.body')
+
+    cat <<EOF > "${sync_dir}/issue-${num}.md"
+# Issue #${num}: ${title}
+
+- **URL:** ${url}
+- **Labels:** ${labels:-None}
+
+## Description
+${body}
+EOF
+  done
+
+  echo "Sync complete."
+}
+alias opencode-sync="sync-issues && opencode"
+
+search-issues() {
+  local keyword="$1"
+  local git_root
+
+  git_root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+    echo "Error: Not inside a Git repository." >&2
+    return 1
+  }
+
+  if [[ -z "$keyword" ]]; then
+    echo "Usage: search-issues <keyword>" >&2
+    return 1
+  fi
+
+  local target_dir="${git_root}/.context/issues"
+
+  if [[ ! -d "$target_dir" ]]; then
+    echo "Error: No issue context folder found at '${target_dir}'." >&2
+    return 1
+  fi
+
+  if command -v rg &>/dev/null; then
+    rg -i "$keyword" "$target_dir"
+  else
+    grep -rni "$keyword" "$target_dir"
+  fi
+}
